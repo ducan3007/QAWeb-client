@@ -53,7 +53,7 @@ const AskForm = ({ addPost }) => {
                   Be specific and imagine you’re asking a question to another
                   person.
                   <br />
-                  Minimum length: 15 characters.
+                  Enter title with minimum 15 characters
                 </p>
               </label>
               <input
@@ -74,7 +74,7 @@ const AskForm = ({ addPost }) => {
                   Include all the information someone would need to answer your
                   question.
                   <br />
-                  Minimum length: 30 characters.
+                  Enter body with minimum 30 characters
                 </p>
               </label>
               <div className="s-textarea rich-text-editor-container">
