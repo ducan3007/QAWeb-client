@@ -1,0 +1,33 @@
+.tag-card {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1.5px solid #bdbebe;
+    background-color: #ffffff;
+    .grid {
+        display: flex;
+        margin-bottom: 12px;
+        align-items: center;
+        justify-content: space-between;
+        .grid-cell {
+            display: block;
+        }
+    }
+    &:hover {
+        border-color: #adadad;
+    }
+    .description {
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        color: #414141 !important;
+        margin-bottom: 12px !important;
+    }
+    .tag-caption {
+        font-size: 12px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        color: #9fa6ad;
+    }
+}
