@@ -31,7 +31,7 @@ const PostCell = ({
         <div className="tags-container" >
           {(tagname || []).map((tag) => (
             <div className="tags-field">
-              <TagBadge tag_name={tag} size={"s-tag"} float={"left"} />
+              <TagBadge tag_name={(tag)} size={"s-tag"} float={"left"} />
             </div>
           ))}
         </div>

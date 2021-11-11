@@ -15,12 +15,14 @@ import PageTitle from '../../components/PageTitle/PageTitle.component';
 import './QuestionsPage.styles.scss';
 
 const QuestionsPage = ({getPosts, post: {posts, loading}}) => {
+  let searchQuery = new URLSearchParams(useLocation().search).get('search');
+
   useEffect(() => {
-    getPosts();
-  }, [getPosts]);
+    getPosts(searchQuery);
+  }, [getPosts, searchQuery]);
 
   const [sortType, setSortType] = useState('Newest');
-  let searchQuery = new URLSearchParams(useLocation().search).get('search');
+ 
   posts = posts.filter((post) =>{
                 let arrs = [];
                 if(searchQuery){

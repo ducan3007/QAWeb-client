@@ -27,15 +27,15 @@ const PostItem = ({
 }) => {
   const answerVoteUp = (
     <div className="vote answer">
-      <span className="vote-count fc-green-500">{answer_count}</span>
-      <div className="count-text">answers</div>
+      <span className="vote-count" style={{color:"white"}}>{answer_count}</span>
+      <div className="count-text" style={{color:"white"}}>Answers</div>
     </div>
   );
 
   const answerVoteDown = (
     <div className="vote">
       <span className="vote-count">{answer_count}</span>
-      <div className="count-text">answers</div>
+      <div className="count-text">Answers</div>
     </div>
   );
 
@@ -45,15 +45,15 @@ const PostItem = ({
         <div className="stats">
           <div className="vote">
             <span className="vote-count">{comment_count}</span>
-            <div className="count-text">comments</div>
+            <div className="count-text">Comments</div>
           </div>
           {answer_count > 0 ? answerVoteUp : answerVoteDown}
           <div className="vote">
-            <span className="vote-count">{tagname ? 1 : 0}</span>
-            <div className="count-text">tags</div>
+            <span className="vote-count">{(tagname || ['']).length}</span>
+            <div className="count-text">Tags</div>
           </div>
           <div className="vote">
-            <div className="count-text">{views} views</div>
+            <div className="count-text" style={{color:'#f77d25'}}>{views} Views</div>
           </div>
         </div>
       </div>
@@ -71,7 +71,7 @@ const PostItem = ({
         <div className="tags-container" >
           {(tagname || []).map((tag) => (
             <div className="tags-field">
-              <TagBadge tag_name={tag} size={"s-tag"} float={"left"} />
+              <TagBadge tag_name={(tag)} size={"s-tag"} float={"left"} />
             </div>
           ))}
         </div>

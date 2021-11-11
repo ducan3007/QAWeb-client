@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { setAlert } from '../alert/alert.actions';
-
+import { getTags } from '../tags/tags.actions';
 import {
     GET_POSTS,
     GET_POST,
@@ -12,9 +12,9 @@ import {
 } from './posts.types';
 
 // Get posts
-export const getPosts = () => async(dispatch) => {
+export const getPosts = (searchQuery) => async(dispatch) => {
     try {
-        const res = await axios.get('/api/posts');
+        const res = await axios.get(`/api/posts/?search=${encodeURIComponent(searchQuery)}`);
 
         dispatch({
             type: GET_POSTS,
@@ -22,7 +22,7 @@ export const getPosts = () => async(dispatch) => {
         });
 
     } catch (err) {
-        dispatch(setAlert(err.response.data.message, 'danger'));
+        dispatch(setAlert((err.response.data.message || ''), 'danger'));
 
         dispatch({
             type: POST_ERROR,
@@ -31,6 +31,25 @@ export const getPosts = () => async(dispatch) => {
     }
 };
 // Get post
+// export const searchPost = (searchQuery) => async(dispatch) => {
+//     try {
+//         const res = await axios.get(`/api/posts/?search=${searchQuery}`);
+
+//         dispatch({
+//             type: SEARCH_POSTS,
+//             payload: res.data.data,
+//         });
+
+//     } catch (err) {
+//         dispatch(setAlert(err.response.data.message, 'danger'));
+
+//         dispatch({
+//             type: POST_ERROR,
+//             payload: { msg: err.response.statusText, status: err.response.status },
+//         });
+//     }
+// };
+
 export const getPost = (id) => async(dispatch) => {
     try {
         const res = await axios.get(`/api/posts/${id}`);
@@ -88,7 +107,7 @@ export const getTopPosts = () => async(dispatch) => {
 //GET TAG POSTS
 export const getTagPosts = (tagName) => async(dispatch) => {
     try {
-        const res = await axios.get(`/api/posts/tag/${tagName}`);
+        const res = await axios.get(`/api/posts/tag/${encodeURIComponent(tagName)}`);
 
         dispatch({
             type: GET_TAG_POSTS,
@@ -146,6 +165,7 @@ export const deletePost = (id) => async(dispatch) => {
         });
 
         dispatch(setAlert(res.data.message, 'success'));
+        dispatch(getTags());
     } catch (err) {
         dispatch(setAlert(err.response.data.message, 'danger'));
 

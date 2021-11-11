@@ -9,7 +9,7 @@ import {
 import axios from 'axios';
 import { setAlert } from '../alert/alert.actions';
 import { getAnswers } from '../answers/answers.actions';
-
+import { getPost } from '../posts/posts.actions';
 export const getComments = (id) => async(dispatch) => {
     try {
         const res = await axios.get(`/api/posts/comments/${id}`);
@@ -47,7 +47,7 @@ export const addComment = (postId, formData) => async(dispatch) => {
         });
 
         dispatch(setAlert(res.data.message, 'success'));
-
+        dispatch(getPost(postId));
         dispatch(getComments(postId));
     } catch (err) {
         dispatch(setAlert(err.response.data.message, 'danger'));
@@ -70,6 +70,7 @@ export const deleteComment = (PostId, CommentId) => async(dispatch) => {
         });
 
         dispatch(setAlert(res.data.message, 'success'));
+        dispatch(getPost(PostId));
     } catch (err) {
         dispatch(setAlert(err.response.data.message, 'danger'));
 

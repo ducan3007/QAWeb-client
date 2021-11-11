@@ -38,7 +38,7 @@ const TagPage = ({getTag, getTagPosts, tag, post: {posts, loading}, match}) => {
       <div id='mainbar' className='questions-page fc-black-800'>
         <div className='questions-grid'>
           <h3 className='questions-headline'>
-            Questions tagged <span style={{color:'#0077cc'}}>[{tag.tag.tagname}]</span>
+            Questions tagged <span style={{color:'#0077cc'}}>[{decodeURIComponent(tag.tag.tagname)}]</span>
           </h3>
           <div className='questions-btn'>
             <LinkButton
