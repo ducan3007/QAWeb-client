@@ -12,7 +12,9 @@ const TagsWidget = ({ getTags, tag: { tags, loading } }) => {
   useEffect(() => {
     getTags();
   }, [getTags]);
-
+  if(tags === undefined){
+    tags = [];
+  }
   return loading || (tags || ['']).length === 0 ? (
     ""
   ) : (
