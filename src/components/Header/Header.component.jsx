@@ -13,7 +13,7 @@ import './Header.styles.scss';
 
 const Header = ({auth: {isAuthenticated, loading, user}, logout}) => {
   let history  = useHistory();
-
+  console.log(user);
   
   const authLinks = (
     <div className='btns'>
