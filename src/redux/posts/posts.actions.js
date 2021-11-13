@@ -59,7 +59,7 @@ export const getPost = (id) => async(dispatch) => {
             payload: res.data.data,
         });
     } catch (err) {
-        dispatch(setAlert(err.response.data.message, 'danger'));
+        dispatch(setAlert((err.response.data.message || ''), 'danger'));
 
         dispatch({
             type: POST_ERROR,
@@ -77,8 +77,7 @@ export const getUserPost = (id) => async(dispatch) => {
             payload: res.data.data,
         });
     } catch (err) {
-        dispatch(setAlert(err.response.data.message, 'danger'));
-
+        dispatch(setAlert((err.response.data.message || ''), 'danger'));
         dispatch({
             type: POST_ERROR,
             payload: { msg: err.response.statusText, status: err.response.status },
@@ -95,8 +94,7 @@ export const getTopPosts = () => async(dispatch) => {
             payload: res.data.data,
         });
     } catch (err) {
-        dispatch(setAlert(err.response.data.message, 'danger'));
-
+        dispatch(setAlert((err.response.data.message || ''), 'danger'));
         dispatch({
             type: POST_ERROR,
             payload: { msg: err.response.statusText, status: err.response.status },
@@ -114,7 +112,7 @@ export const getTagPosts = (tagName) => async(dispatch) => {
             payload: res.data.data,
         });
     } catch (err) {
-        dispatch(setAlert(err.response.data.message, 'danger'));
+        dispatch(setAlert((err.response.data.message || ''), 'danger'));
 
         dispatch({
             type: POST_ERROR,

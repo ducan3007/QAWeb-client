@@ -13,7 +13,7 @@ const TagsWidget = ({ getTags, tag: { tags, loading } }) => {
     getTags();
   }, [getTags]);
 
-  return loading || tags.length === 0 ? (
+  return loading || (tags || ['']).length === 0 ? (
     ""
   ) : (
     <Fragment>
