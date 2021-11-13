@@ -56,7 +56,7 @@ const UserPage = ({
                 </div>
                 <div className="title">
                   <div className="grid fc-black-800">
-                    {user.views}
+                    {user?.views}
                     &nbsp;
                     <span className="fc-black-800">PROFILE VIEWS</span>
                   </div>

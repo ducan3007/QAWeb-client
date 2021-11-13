@@ -13,7 +13,7 @@ export const getUsers = () => async(dispatch) => {
     } catch (err) {
         dispatch({
             type: USER_ERROR,
-            payload: { msg: err.response.statusText, status: err.response.status },
+            payload: { msg: err ? .response ? .statusText, status: err ? .response ? .status },
         });
     }
 };
@@ -29,7 +29,7 @@ export const getUser = (id) => async(dispatch) => {
     } catch (err) {
         dispatch({
             type: USER_ERROR,
-            payload: { msg: err.response.statusText, status: err.response.status },
+            payload: { msg: err ? .response ? .statusText, status: err ? .response ? .status },
         });
     }
 };
