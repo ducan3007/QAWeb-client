@@ -50,7 +50,7 @@ export const addComment = (postId, formData) => async(dispatch) => {
         dispatch(getPost(postId));
         dispatch(getComments(postId));
     } catch (err) {
-        dispatch(setAlert(err.response.data.message, 'danger'));
+        //  dispatch(setAlert(err.response.data.message, 'danger'));
 
         dispatch({
             type: COMMENT_ERROR,
@@ -72,7 +72,7 @@ export const deleteComment = (PostId, CommentId) => async(dispatch) => {
         dispatch(setAlert(res.data.message, 'success'));
         dispatch(getPost(PostId));
     } catch (err) {
-        dispatch(setAlert((err.response.data.message || ''), 'danger'));
+        //  dispatch(setAlert((err.response.data.message || ''), 'danger'));
 
         dispatch({
             type: COMMENT_ERROR,
@@ -103,7 +103,7 @@ export const addAnswerComment = (PostId, answerId, formData) => async(dispatch) 
         dispatch(getAnswers(PostId));
 
     } catch (err) {
-        dispatch(setAlert((err.response.data.message || ''), 'danger'));
+        // dispatch(setAlert((err.response.data.message || ''), 'danger'));
 
         dispatch({
             type: COMMENT_ERROR,
@@ -141,7 +141,7 @@ export const deleteAnswerComment = (PostId, AnswerId, CommentId) => async(dispat
         dispatch(setAlert(res.data.message, 'success'));
         dispatch(getAnswers(PostId));
     } catch (err) {
-        dispatch(setAlert((err.response.data.message || ''), 'danger'));
+        // dispatch(setAlert((err.response.data.message || ''), 'danger'));
 
         dispatch({
             type: COMMENT_ERROR,
