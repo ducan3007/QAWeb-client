@@ -86,7 +86,7 @@ const UserPage = ({
                           <div className="head fc-black-700">
                             {user.votes}
                           </div>
-                          <div className="foot fc-black-500">Rank</div>
+                          <div className="foot fc-black-500">Votes</div>
                         </div>
                       </div>
                       <div className="cells">

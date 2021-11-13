@@ -104,7 +104,7 @@ const AnswerItem = ({
 
         <div className="answer-item">
           <div
-            className="answer-content fc-black-800"
+            className="answer-content"
             dangerouslySetInnerHTML={{ __html: body }}
           ></div>
           <div className="answer-actions">

@@ -58,7 +58,7 @@ const PostItem = ({
       </div>
       <div className="summary">
         <h3>
-          <Link to={`/questions/${id}`}>{title}</Link>
+          <Link to={`/questions/${id}`}>{htmlSubstring(title,150)}</Link>
         </h3>
         <div
           className="brief"
