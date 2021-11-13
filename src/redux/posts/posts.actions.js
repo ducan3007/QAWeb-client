@@ -14,7 +14,7 @@ import {
 // Get posts
 export const getPosts = (searchQuery) => async(dispatch) => {
     try {
-        const res = await axios.get(`/api/posts/?search=${encodeURIComponent(searchQuery)}`);
+        const res = await axios.get(`https://qa-server-demo.herokuapp.com/api/posts/?search=${encodeURIComponent(searchQuery)}`);
 
         dispatch({
             type: GET_POSTS,
