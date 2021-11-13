@@ -12,17 +12,7 @@ const initialState = {
     token: localStorage.getItem('token'),
     isAuthenticated: null,
     loading: true,
-    user: {
-        id: '',
-        username: '',
-        views: 0,
-        created_at: '',
-        post_count: 0,
-        answer_count: 0,
-        votes: 0,
-        tag_count: 0,
-        comment_count: 0,
-    },
+    user: null,
 };
 
 export default function(state = initialState, action) {

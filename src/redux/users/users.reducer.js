@@ -2,17 +2,7 @@ import { GET_USERS, GET_USER, USER_ERROR } from './users.types';
 
 const initialState = {
     users: [],
-    user: {
-        id: '',
-        username: '',
-        views: 0,
-        created_at: '',
-        post_count: 0,
-        answer_count: 0,
-        votes: 0,
-        tag_count: 0,
-        comment_count: 0,
-    },
+    user: null,
     loading: true,
     error: {},
 };

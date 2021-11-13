@@ -36,7 +36,7 @@ const TagsPage = ({getTags, tag: {tags, loading}}) => {
           find and answer your question.
         </p>
         <div className='headline-count'>
-          <span>{new Intl.NumberFormat('en-IN').format(tags.length)} Tags</span>
+          <span>{new Intl.NumberFormat('en-IN').format(tags?.length)} Tags</span>
         </div>
         <div className='tags-box pl16 pr16 pb16'>
           <SearchBox
@@ -52,13 +52,12 @@ const TagsPage = ({getTags, tag: {tags, loading}}) => {
         </div>
         <div className='user-browser'>
           <div className='grid-layout'>
-            {tags
-              .filter((tag) =>
+            {tags?.filter((tag) =>
                 tag.tagname.toLowerCase().includes(fetchSearch.toLowerCase())
               )
               ?.sort(handleSorting(sortType))
               .map((tag) => (
-                <TagPanel key={tag.tagname} tag={tag} />
+                <TagPanel key={tag?.tagname} tag={tag} />
               ))}
           </div>
         </div>

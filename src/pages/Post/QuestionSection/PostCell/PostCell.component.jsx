@@ -55,9 +55,9 @@ const PostCell = ({
                 >
                   follow
                 </Link>
-                {!auth.loading &&
-                  auth.isAuthenticated &&
-                  (user_id) === auth.user.id && (
+                {!auth?.loading &&
+                  auth?.isAuthenticated &&
+                  (user_id) === auth?.user?.id && (
                     <Link
                       className='s-link s-link__danger'
                       style={{paddingLeft: '4px'}}

@@ -32,7 +32,7 @@ const UsersPage = ({ getUsers, user: { users, loading } }) => {
         <h1 className="headline">Users</h1>
         <div className="headline-count">
           <span>
-            {new Intl.NumberFormat("en-IN").format(users.length)} users
+            {new Intl.NumberFormat("en-IN").format(users?.length)} users
           </span>
         </div>
         <div className="users-box pl16 pr16 pb16">
@@ -49,13 +49,12 @@ const UsersPage = ({ getUsers, user: { users, loading } }) => {
         </div>
         <div className="user-browser">
           <div className="grid-layout">
-            {users
-              .filter((user) =>
-                user.username.toLowerCase().includes(fetchSearch.toLowerCase())
+            {users?.filter((user) =>
+                user?.username.toLowerCase().includes(fetchSearch.toLowerCase())
               )
               ?.sort(handleSorting(sortType, "users"))
               .map((user) => (
-                <UserPanel key={user.id} user={user} />
+                <UserPanel key={user?.id} user={user} />
               ))}
           </div>
         </div>
