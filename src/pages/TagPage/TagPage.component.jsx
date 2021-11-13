@@ -24,21 +24,21 @@ const TagPage = ({getTag, getTagPosts, tag, post: {posts, loading}, match}) => {
 
   const [sortType, setSortType] = useState('Newest');
 
-  if (tag.redirect) {
+  if (tag?.redirect) {
     return <Redirect to='/tags' />;
   }
 
-  return tag.tag === null || tag.loading || loading ? (
+  return tag?.tag === null || tag?.loading || loading ? (
     <Spinner type='page' width='75px' height='200px' />
   ) : (
     <Fragment>
       <PageTitle
-        title={`Questions tagged [${tag.tag.tagname}]`}
+        title={`Questions tagged [${tag?.tag?.tagname}]`}
       />
       <div id='mainbar' className='questions-page fc-black-800'>
         <div className='questions-grid'>
           <h3 className='questions-headline'>
-            Questions tagged <span style={{color:'#0077cc'}}>[{decodeURIComponent(tag.tag.tagname)}]</span>
+            Questions tagged <span style={{color:'#0077cc'}}>[{decodeURIComponent(tag?.tag?.tagname)}]</span>
           </h3>
           <div className='questions-btn'>
             <LinkButton
@@ -50,12 +50,12 @@ const TagPage = ({getTag, getTagPosts, tag, post: {posts, loading}, match}) => {
         </div>
         <p
           className='fs-body'
-          dangerouslySetInnerHTML={{__html: tag.tag.description}}
+          dangerouslySetInnerHTML={{__html: tag?.tag?.description}}
         />
         <div className='questions-tabs'>
           <span>
-            {new Intl.NumberFormat('en-IN').format(tag.tag.posts_count)}{' '}
-            {tag.tag.posts_count <= 1 ? 'Question' : 'Questions'}
+            {new Intl.NumberFormat('en-IN').format(tag?.tag?.posts_count)}{' '}
+            {tag?.tag?.posts_count <= 1 ? 'Question' : 'Questions'}
           </span>
           <ButtonGroup
             buttons={['Newest', 'Top', 'Views', 'Oldest']}
@@ -64,14 +64,14 @@ const TagPage = ({getTag, getTagPosts, tag, post: {posts, loading}, match}) => {
           />
         </div>
         <div className='questions'>
-          {tag.tag.posts_count === 0 ? (
+          {tag?.tag?.posts_count === 0 ? (
             <h4 style={{margin: '30px 30px'}}>
               There are no questions from this tag
             </h4>
           ) : (
             posts
               ?.sort(handleSorting(sortType))
-              .map((post) => <PostItem key={post.id} post={post} />)
+              .map((post) => <PostItem key={post?.id} post={post} />)
           )}
         </div>
       </div>

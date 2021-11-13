@@ -32,7 +32,7 @@ const AnswerForm = ({addAnswer, auth, postId}) => {
 
   return (
     <Fragment>
-      {!auth.loading && auth.isAuthenticated ? (
+      {!auth?.loading && auth?.isAuthenticated ? (
         <Fragment>
           <form className='answer-form' onSubmit={(e) => handleSubmit(e)}>
             <div className='answer-grid'>

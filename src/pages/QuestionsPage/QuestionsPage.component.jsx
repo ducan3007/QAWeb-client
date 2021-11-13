@@ -23,17 +23,17 @@ const QuestionsPage = ({getPosts, post: {posts, loading}}) => {
 
   const [sortType, setSortType] = useState('Newest');
  
-  posts = posts.filter((post) =>{
+  posts = posts?.filter((post) =>{
                 let arrs = [];
                 if(searchQuery){
                   arrs = searchQuery.split(' ')
                 }
                 for(let arr of arrs ){
-                  if(post.title.toLowerCase().includes(arr) || post.tagname.includes(arr.toLowerCase())){
+                  if(post?.title.toLowerCase().includes(arr) || post?.tagname.includes(arr.toLowerCase())){
                       return true;
                   }
                 }
-                return post.title.toLowerCase().includes(searchQuery ? searchQuery : '');
+                return post?.title.toLowerCase().includes(searchQuery ? searchQuery : '');
             }
     )
 
@@ -75,7 +75,7 @@ const QuestionsPage = ({getPosts, post: {posts, loading}}) => {
         <div className='questions-tabs'>
           <span>
             {
-            posts.length
+            posts?.length
             } Results
           </span>
           <ButtonGroup
@@ -88,7 +88,7 @@ const QuestionsPage = ({getPosts, post: {posts, loading}}) => {
           {
             posts?.sort(handleSorting(sortType))
             .map((post) => (
-              <PostItem key={post.id} post={post} />
+              <PostItem key={post?.id} post={post} />
             ))
             }
             

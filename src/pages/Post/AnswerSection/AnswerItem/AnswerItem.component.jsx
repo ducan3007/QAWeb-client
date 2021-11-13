@@ -21,18 +21,18 @@ const AnswerItem = ({
 }) => {
   let upVoted = (votes || []).find((v) => {
     if (!auth.loading && auth.isAuthenticated) {
-      return v.user_id === auth.user.id && v.vote > 0;
+      return v?.user_id === auth?.user?.id && v?.vote > 0;
     }
     return undefined;
   });
   let downVoted = (votes || []).find((v) => {
     if (!auth.loading && auth.isAuthenticated) {
-      return v.user_id === auth.user.id && v.vote < 0;
+      return v?.user_id === auth?.user?.id && v?.vote < 0;
     }
     return undefined;
   });
   let score = (votes || []).reduce((a, b) => {
-    return a + b.vote;
+    return a + b?.vote;
   }, 0);
   // "#df7015"
 
@@ -42,7 +42,7 @@ const AnswerItem = ({
       <div className="answer-layout">
         <div className="vote-cell">
           <div className="vote-container">
-            {!auth.loading && auth.isAuthenticated && upVoted === undefined ? (
+            {!auth?.loading && auth?.isAuthenticated && upVoted === undefined ? (
               <button
                 className="vote-up"
                 title="This answer is usefull"
@@ -50,7 +50,7 @@ const AnswerItem = ({
               >
                 <ArrowUp />
               </button>
-            ) : !auth.loading && auth.isAuthenticated && upVoted ? (
+            ) : !auth?.loading && auth?.isAuthenticated && upVoted ? (
               <Link
                 className="vote-up"
                 title="This answer is usefull"
@@ -71,8 +71,8 @@ const AnswerItem = ({
 
             <div className="vote-count fc-black-500">{score}</div>
 
-            {!auth.loading &&
-            auth.isAuthenticated &&
+            {!auth?.loading &&
+            auth?.isAuthenticated &&
             downVoted === undefined ? (
               <button
                 className="vote-down"
@@ -81,7 +81,7 @@ const AnswerItem = ({
               >
                 <ArrowDown />
               </button>
-            ) : !auth.loading && auth.isAuthenticated && downVoted ? (
+            ) : !auth?.loading && auth?.isAuthenticated && downVoted ? (
               <Link
                 className="vote-down"
                 title="This answer is not usefull"
@@ -110,9 +110,9 @@ const AnswerItem = ({
           <div className="answer-actions">
             <div className="action-btns">
               <div className="answer-menu">
-                {!auth.loading &&
-                  auth.isAuthenticated &&
-                  user_id === auth.user.id && (
+                {!auth?.loading &&
+                  auth?.isAuthenticated &&
+                  user_id === auth?.user?.id && (
                     <Link
                       className="s-link s-link__danger"
                       style={{ paddingLeft: "4px" }}

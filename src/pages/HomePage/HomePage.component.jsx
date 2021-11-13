@@ -37,7 +37,7 @@ const HomePage = ({getTopPosts, post: {posts, loading}}) => {
         </div>
         <div className='questions'>
           {(posts||[]).map((post) => (
-            <PostItem key={post.id} post={post} />
+            <PostItem key={post?.id} post={post} />
           ))}
         </div>
       </div>

@@ -53,7 +53,7 @@ export const register = ({ username, password }) => async(dispatch) => {
 
         dispatch(loadUser());
     } catch (err) {
-        //  dispatch(setAlert(err.response.data.message, 'danger'));
+        dispatch(setAlert(err?.response?.data?.message, 'danger'));
 
         dispatch({
             type: REGISTER_FAIL,
@@ -83,7 +83,7 @@ export const login = ({ username, password }) => async(dispatch) => {
 
         dispatch(loadUser());
     } catch (err) {
-        //   dispatch(setAlert(err.response.data.message, 'danger'));
+        dispatch(setAlert(err?.response?.data?.message, 'danger'));
 
         dispatch({
             type: LOGIN_FAIL,
