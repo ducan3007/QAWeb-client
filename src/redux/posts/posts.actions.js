@@ -22,7 +22,7 @@ export const getPosts = (searchQuery) => async(dispatch) => {
         });
 
     } catch (err) {
-        //  dispatch(setAlert((err.response.data.message || ''), 'danger'));
+        dispatch(setAlert((err.response.data.message || ''), 'danger'));
 
         dispatch({
             type: POST_ERROR,
@@ -59,7 +59,7 @@ export const getPost = (id) => async(dispatch) => {
             payload: res.data.data,
         });
     } catch (err) {
-        //  dispatch(setAlert((err.response.data.message || ''), 'danger'));
+        dispatch(setAlert((err.response.data.message || ''), 'danger'));
 
         dispatch({
             type: POST_ERROR,
@@ -77,7 +77,7 @@ export const getUserPost = (id) => async(dispatch) => {
             payload: res.data.data,
         });
     } catch (err) {
-        //   dispatch(setAlert((err.response.data.message || ''), 'danger'));
+        dispatch(setAlert((err.response.data.message || ''), 'danger'));
         dispatch({
             type: POST_ERROR,
             payload: { msg: err.response.statusText, status: err.response.status },
@@ -94,7 +94,7 @@ export const getTopPosts = () => async(dispatch) => {
             payload: res.data.data,
         });
     } catch (err) {
-        //  dispatch(setAlert((err.response.data.message || ''), 'danger'));
+        dispatch(setAlert((err.response.data.message || ''), 'danger'));
         dispatch({
             type: POST_ERROR,
             payload: { msg: err.response.statusText, status: err.response.status },
@@ -112,7 +112,7 @@ export const getTagPosts = (tagName) => async(dispatch) => {
             payload: res.data.data,
         });
     } catch (err) {
-        //  dispatch(setAlert((err.response.data.message || ''), 'danger'));
+        dispatch(setAlert((err.response.data.message || ''), 'danger'));
 
         dispatch({
             type: POST_ERROR,
@@ -165,7 +165,7 @@ export const deletePost = (id) => async(dispatch) => {
         dispatch(setAlert(res.data.message, 'success'));
         dispatch(getTags());
     } catch (err) {
-        // dispatch(setAlert(err.response.data.message, 'danger'));
+        dispatch(setAlert(err.response.data.message, 'danger'));
 
         dispatch({
             type: POST_ERROR,
@@ -183,7 +183,7 @@ export const Vote = (postId, voteAction) => async(dispatch) => {
         dispatch(setAlert(res.data.message, 'success'));
         dispatch(getPost(postId));
     } catch (err) {
-        //   dispatch(setAlert((err.response.data.message || ''), 'danger'));
+        dispatch(setAlert((err.response.data.message || ''), 'danger'));
 
         dispatch({
             type: POST_ERROR,

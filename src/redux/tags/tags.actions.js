@@ -12,7 +12,7 @@ export const getTag = (tagName) => async(dispatch) => {
         });
     } catch (err) {
         // dispatch(() => history.push('/questions'))
-        // dispatch(setAlert(err.response.data.message, 'danger'));
+        dispatch(setAlert(err.response.data.message, 'danger'));
 
         dispatch({
             type: TAG_ERROR,
@@ -30,7 +30,7 @@ export const getTags = () => async(dispatch) => {
             payload: res.data.data,
         });
     } catch (err) {
-        //  dispatch(setAlert(err.response.data.message, 'danger'));
+        dispatch(setAlert(err.response.data.message, 'danger'));
 
         dispatch({
             type: TAG_ERROR,
