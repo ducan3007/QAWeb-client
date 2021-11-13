@@ -13,14 +13,14 @@ import './Header.styles.scss';
 
 const Header = ({auth: {isAuthenticated, loading, user}, logout}) => {
   let history  = useHistory();
-  console.log(user);
+  
   
   const authLinks = (
     <div className='btns'>
       {loading || user === null ? (
         <Spinner width='50px' height='50px' />
       ) : (
-        <Link to={`/users/${user.id}`} title={user.username}>
+        <Link to={`/users/${user?.id}`} title={user.username}>
           <img
             alt='user-logo'
             className='logo'
