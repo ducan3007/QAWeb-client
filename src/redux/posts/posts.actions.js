@@ -144,7 +144,7 @@ export const addPost = (formData, cb) => async(dispatch) => {
         cb(null, res.data);
 
     } catch (err) {
-        dispatch(setAlert(err.response.data.message, 'danger'));
+
 
         dispatch({
             type: POST_ERROR,
