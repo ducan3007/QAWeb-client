@@ -17,6 +17,7 @@ const PostItem = ({
     title,
     body,
     tagname,
+    votes,
     username,
     user_id,
     answer_count,
@@ -38,22 +39,20 @@ const PostItem = ({
       <div className="count-text">Answers</div>
     </div>
   );
-
+  const vote_count = (votes||['']).reduce((count,v)=>{
+    return count + v.vote
+  },0)
   return (
     <div className="posts">
       <div className="stats-container fc-black-500">
         <div className="stats">
           <div className="vote">
-            <span className="vote-count">{comment_count}</span>
-            <div className="count-text">Comments</div>
+            <span className="vote-count">{vote_count}</span>
+            <div className="count-text"><span style={{color:"#6eb183",fontSize:"1.3em"}}>Votes</span> </div>
           </div>
           {answer_count > 0 ? answerVoteUp : answerVoteDown}
           <div className="vote">
-            <span className="vote-count">{(tagname || ['']).length}</span>
-            <div className="count-text">Tags</div>
-          </div>
-          <div className="vote">
-            <div className="count-text" style={{color:'#f77d25'}}>{views} Views</div>
+            <div className="count-text" style={{color:'#f77d25',fontSize:"1.3em"}}>{views} Views</div>
           </div>
         </div>
       </div>

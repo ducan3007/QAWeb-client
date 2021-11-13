@@ -175,3 +175,22 @@ export const deletePost = (id) => async(dispatch) => {
         });
     }
 };
+export const Vote = (postId, voteAction) => async(dispatch) => {
+    try {
+        const res = await axios.get(`/api/vote/post/${postId}/${voteAction}`);
+        dispatch({
+            type: GET_POST,
+            payload: res.data.data,
+        });
+        dispatch(setAlert(res.data.message, 'success'));
+        dispatch(getPost(postId));
+    } catch (err) {
+        dispatch(setAlert((err.response.data.message || ''), 'danger'));
+
+        dispatch({
+            type: POST_ERROR,
+            payload: { msg: err.response.statusText, status: err.response.status },
+        });
+    }
+
+}

@@ -70,7 +70,7 @@ const UserPage = ({
                     <div className="details fc-black-800">
                       <h2>{user.username}</h2>
                     </div>
-                    <div className="date">
+                    <div className="date" style={{fontSize:"1.5em"}}>
                       <p>
                         Member for&nbsp;
                         {moment(user.created_at).toNow(true)}
@@ -81,6 +81,14 @@ const UserPage = ({
                 <div className="stats-cell">
                   <div className="count-sec">
                     <div className="counts">
+                    <div className="cells">
+                        <div className="column-grid">
+                          <div className="head fc-black-700">
+                            {user.votes}
+                          </div>
+                          <div className="foot fc-black-500">Rank</div>
+                        </div>
+                      </div>
                       <div className="cells">
                         <div className="column-grid">
                           <div className="head fc-black-700">

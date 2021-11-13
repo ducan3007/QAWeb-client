@@ -17,37 +17,37 @@ import NotFound from "./pages/NotFound/NotFound.component";
 
 const HomePageComponent = withPageTitle({
   component: PageContainer({ component: HomePage }),
-  title: "Q&A Website",
+  title: "Home",
 });
 
 const QuestionsPageComponent = withPageTitle({
   component: PageContainer({ component: QuestionsPage }),
-  title: "All Questions - Q&A Website",
+  title: "All Questions",
 });
 
 const TagsPageComponent = withPageTitle({
   component: PageContainer({ component: TagsPage }),
-  title: "Tags - Q&A Website",
+  title: "Tags",
 });
 
 const UsersPageComponent = withPageTitle({
   component: PageContainer({ component: UsersPage }),
-  title: "Users - Q&A Website",
+  title: "Users",
 });
 
 const RegisterComponent = withPageTitle({
   component: Register,
-  title: "Sign Up - Q&A Website",
+  title: "Sign Up",
 });
 
 const LoginComponent = withPageTitle({
   component: Login,
-  title: "Log In - Q&A Website",
+  title: "Log In",
 });
 
 const PostFormComponent = withPageTitle({
   component: PostForm,
-  title: "Ask a Question - Q&A Website",
+  title: "Ask a Question",
 });
 
 const NotFoundComponent = withPageTitle({

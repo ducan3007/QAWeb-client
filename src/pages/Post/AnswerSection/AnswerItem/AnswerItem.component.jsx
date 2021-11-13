@@ -6,7 +6,6 @@ import { deleteAnswer } from "../../../../redux/answers/answers.actions";
 import { Vote } from "../../../../redux/answers/answers.actions";
 import ArrowUp from "../../../../assets/ArrowUp";
 import ArrowDown from "../../../../assets/ArrowDown";
-// import { ReactComponent as DownVote } from "../../../../assets/ArrowDownLg.svg";
 
 import UserCard from "../../../../components/UserCard/UserCard.component";
 import AnswerCommentCell from "./CommentCell/AnswerCommentCell.component";
@@ -20,17 +19,21 @@ const AnswerItem = ({
   postId,
   answerId,
 }) => {
-  let upVoted = (votes || []).find(
-    (v) => v.user_id === auth.user.id && v.vote > 0
-  );
-  let downVoted = (votes || []).find(
-    (v) => v.user_id === auth.user.id && v.vote < 0
-  );
+  let upVoted = (votes || []).find((v) => {
+    if (!auth.loading && auth.isAuthenticated) {
+      return v.user_id === auth.user.id && v.vote > 0;
+    }
+    return undefined;
+  });
+  let downVoted = (votes || []).find((v) => {
+    if (!auth.loading && auth.isAuthenticated) {
+      return v.user_id === auth.user.id && v.vote < 0;
+    }
+    return undefined;
+  });
   let score = (votes || []).reduce((a, b) => {
     return a + b.vote;
   }, 0);
-  console.log("voted: ");
-  console.log(`${body} ${upVoted}`);
   // "#df7015"
 
   // dsfs ? asdfs : sdfdasf ? sdfsdf :
@@ -39,72 +42,64 @@ const AnswerItem = ({
       <div className="answer-layout">
         <div className="vote-cell">
           <div className="vote-container">
-            {!auth.loading && auth.isAuthenticated && (upVoted===undefined) ? (
+            {!auth.loading && auth.isAuthenticated && upVoted === undefined ? (
               <button
                 className="vote-up"
                 title="This answer is usefull"
-                onClick={(e)=> Vote(postId,answerId,"upvote") }
+                onClick={(e) => Vote(postId, answerId, "upvote")}
               >
                 <ArrowUp />
               </button>
-            ) : 
-            !auth.loading && auth.isAuthenticated && (upVoted) ?
-            (
+            ) : !auth.loading && auth.isAuthenticated && upVoted ? (
               <Link
                 className="vote-up"
                 title="This answer is usefull"
-                onClick={(e)=> Vote(postId,answerId,"unvote")}
-                to={`/questions/${postId}` }
+                onClick={(e) => Vote(postId, answerId, "unvote")}
+                to={`/questions/${postId}`}
               >
-                <ArrowUp props={"#df7015"}/>
+                <ArrowUp props={"#df7015"} />
               </Link>
-            )
-            :
-            (
-              <button
+            ) : (
+              <Link
                 className="vote-up"
                 title="This answer is usefull"
+                to={`/login`}
               >
-                <ArrowUp/>
-              </button>
+                <ArrowUp />
+              </Link>
             )}
 
             <div className="vote-count fc-black-500">{score}</div>
 
-            {!auth.loading && auth.isAuthenticated && (downVoted===undefined) ? (
+            {!auth.loading &&
+            auth.isAuthenticated &&
+            downVoted === undefined ? (
               <button
                 className="vote-down"
                 title="This answer is not usefull"
-                onClick={(e)=> Vote(postId,answerId,"downvote") }
+                onClick={(e) => Vote(postId, answerId, "downvote")}
               >
                 <ArrowDown />
               </button>
-            ) : 
-            !auth.loading && auth.isAuthenticated && (downVoted) ?
-            (
+            ) : !auth.loading && auth.isAuthenticated && downVoted ? (
               <Link
                 className="vote-down"
                 title="This answer is not usefull"
-                onClick={(e)=> Vote(postId,answerId,"unvote")}
-                to={`/questions/${postId}` }
+                onClick={(e) => Vote(postId, answerId, "unvote")}
+                to={`/questions/${postId}`}
               >
-                <ArrowDown props={"#df7015"}/>
+                <ArrowDown props={"#df7015"} />
               </Link>
-            )
-            :
-            (
-              <button
-                className="vote-up"
+            ) : (
+              <Link
+                className="vote-down"
+                title="This answer is usefull"
+                to={`/login`}
               >
-                <ArrowUp/>
-              </button>
+                <ArrowDown />
+              </Link>
             )}
           </div>
-
-
-
-
-          
         </div>
 
         <div className="answer-item">
@@ -150,8 +145,8 @@ const AnswerItem = ({
 
 AnswerItem.propTypes = {
   deleteAnswer: PropTypes.func.isRequired,
-  Vote:PropTypes.func.isRequired,
+  Vote: PropTypes.func.isRequired,
   answer: PropTypes.object.isRequired,
 };
 
-export default connect(null, { deleteAnswer,Vote })(AnswerItem);
+export default connect(null, { deleteAnswer, Vote })(AnswerItem);

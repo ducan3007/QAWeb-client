@@ -17,7 +17,9 @@ const Post = ({getPost, post: {post, loading}, match}) => {
     getPost(match.params.id);
     // eslint-disable-next-line
   }, [getPost]);
-
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return loading || post === null ? (
     <Spinner type='page' width='75px' height='200px' />
   ) : (

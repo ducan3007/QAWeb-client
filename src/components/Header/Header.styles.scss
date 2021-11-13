@@ -13,11 +13,11 @@
 }
 
 * {
-    color: black;
+    color: rgb(49, 47, 47);
 }
 
 .s-navigation .not-selected {
-    color: #000000;
+    color: #2f2c2c;
     &:hover {
         background-color: #404345;
         color: #f2f2f3;
@@ -28,6 +28,7 @@
 
 * {
     box-sizing: border-box;
+    font-family: 'Ubuntu';
 }
 
 .navbar-brand {

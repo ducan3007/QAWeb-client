@@ -26,7 +26,7 @@ export const getAnswers = (id) => async(dispatch) => {
 };
 export const Vote = (postId, answerId, voteAction) => async(dispatch) => {
     try {
-        const res = await axios.get(`/api/vote/${answerId}/${voteAction}`);
+        const res = await axios.get(`/api/vote/answer/${answerId}/${voteAction}`);
         dispatch({
             type: GET_POST,
             payload: res.data.data,

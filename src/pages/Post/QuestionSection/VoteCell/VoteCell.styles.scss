@@ -1,24 +1,60 @@
+// .vote-cell {
+//     width: auto;
+//     font-weight: 450;
+//     padding-right: 16px;
+//     vertical-align: top;
+//     grid-column: 1;
+//     grid-column-start: 1;
+//     grid-column-end: auto;
+//     color: #6a737c;
+//     .vote {
+//         padding: 0;
+//         margin-bottom: 8px;
+//         text-align: center;
+//         .vote-count {
+//             font-size: 20px;
+//         }
+//         .count-text {
+//             font-size: 12px;
+//         }
+//     }
+//     vote-cell-selected {
+//         color: orange !important;
+//     }
+// }
 .vote-cell {
     width: auto;
-    font-weight: 450;
     padding-right: 16px;
     vertical-align: top;
     grid-column: 1;
-    grid-column-start: 1;
-    grid-column-end: auto;
-    color: #6a737c;
-    .vote {
-        padding: 0;
-        margin-bottom: 8px;
-        text-align: center;
+    font-size: 13px;
+    .vote-container {
+        margin: -2px;
+        display: flex;
+        align-items: stretch;
+        flex-direction: column;
+        color: #bbc0c4 !important;
+        button {
+            padding: 0;
+            border: none;
+            outline: none;
+            font: unset;
+            border-radius: 0;
+            background: none;
+            box-shadow: none;
+            text-align: center;
+            text-decoration: none;
+        }
         .vote-count {
-            font-size: 20px;
-        }
-        .count-text {
-            font-size: 12px;
+            font-size: 28px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #6a737c;
         }
     }
-    vote-cell-selected {
-        color: orange !important;
-    }
+}
+
+.voted {
+    color: #df7015;
 }

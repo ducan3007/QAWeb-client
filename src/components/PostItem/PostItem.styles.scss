@@ -6,7 +6,7 @@
     border-bottom: 1px solid #c9cbce;
     .stats-container {
         margin-right: 16px;
-        width: 58px;
+        width: 67px;
         color: #6a737c;
         margin-left: 8px;
         font-size: 11px;
@@ -16,6 +16,7 @@
             text-align: center;
             .vote-count {
                 font-size: 20px;
+                color: #6eb183;
             }
             .count-text {
                 font-size: 12px;
@@ -25,7 +26,7 @@
             color: #63b47c;
             border: 1px solid #7ec293;
             border-radius: 3px;
-            background-color: #7ec293;
+            background-color: #6eb183;
         }
     }
     .summary {

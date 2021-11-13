@@ -25,7 +25,7 @@ const PostCell = ({
   return (
     <Fragment>
       <div className='post-cell'>
-        <div className='post-text fc-black-800' dangerouslySetInnerHTML={{__html: body}}></div>
+        <div className='post-text fc-black-300' dangerouslySetInnerHTML={{__html: body}}></div>
         <div className='post-tags fc-black-800'>
 
         <div className="tags-container" >
