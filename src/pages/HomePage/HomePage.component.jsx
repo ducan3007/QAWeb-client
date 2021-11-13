@@ -32,7 +32,7 @@ const HomePage = ({getTopPosts, post: {posts, loading}}) => {
         </div>
         <div className='questions-tabs'>
           <span>
-            {new Intl.NumberFormat('en-IN').format(posts.length)} questions
+            {new Intl.NumberFormat('en-IN').format((posts|| []).length)} questions
           </span>
         </div>
         <div className='questions'>
