@@ -17,28 +17,28 @@ const AnswerSection = ({getAnswers, auth, answer, postId}) => {
     // eslint-disable-next-line
   }, [getAnswers]);
 
-  const [sortType, setSortType] = useState('Votes');
+  const [sortType, setSortType] = useState('Newest');
   return (
     <Fragment>
       <div className='answer'>
         <div className='answer-header fc-black-800'>
           <div className='answer-sub-header'>
             <div className='answer-headline ff-sans'>
-              <h2>{answer?.answers?.length} Answers</h2>
+              <h2>{answer.answers.length} Answers</h2>
             </div>
             <ButtonGroup
-              buttons={['Votes','Newest', 'Oldest']}
+              buttons={['Newest', 'Oldest']}
               selected={sortType}
               setSelected={setSortType}
             />
           </div>
         </div>
-        {answer?.loading === null ? (
+        {answer.loading === null ? (
           <Spinner width='25px' height='25px' />
         ) : (
-          answer?.answers?.sort(handleSorting(sortType)).map((answer) => (
-            <div key={answer?.id} className='answers'>
-              <AnswerItem answer={answer} auth={auth} postId={postId} answerId={answer?.id} />
+          answer.answers?.sort(handleSorting(sortType)).map((answer) => (
+            <div key={answer.id} className='answers'>
+              <AnswerItem answer={answer} auth={auth} postId={postId} answerId={answer.id} />
             </div>
           ))
         )}

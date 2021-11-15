@@ -25,13 +25,13 @@ const PostCell = ({
   return (
     <Fragment>
       <div className='post-cell'>
-        <div className='post-text fc-black-300' dangerouslySetInnerHTML={{__html: body}}></div>
+        <div className='post-text fc-black-800' dangerouslySetInnerHTML={{__html: body}}></div>
         <div className='post-tags fc-black-800'>
 
         <div className="tags-container" >
           {(tagname || []).map((tag) => (
             <div className="tags-field">
-              <TagBadge tag_name={(tag)} size={"s-tag"} float={"left"} />
+              <TagBadge tag_name={tag} size={"s-tag"} float={"left"} />
             </div>
           ))}
         </div>
@@ -55,9 +55,9 @@ const PostCell = ({
                 >
                   follow
                 </Link>
-                {!auth?.loading &&
-                  auth?.isAuthenticated &&
-                  (user_id) === auth?.user?.id && (
+                {!auth.loading &&
+                  auth.isAuthenticated &&
+                  (user_id) === auth.user.id && (
                     <Link
                       className='s-link s-link__danger'
                       style={{paddingLeft: '4px'}}

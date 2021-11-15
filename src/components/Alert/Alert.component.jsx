@@ -6,9 +6,9 @@ import './Alert.styles.scss';
 
 const Alert = ({alerts}) =>
   alerts !== null &&
-  alerts?.length > 0 &&
+  alerts.length > 0 &&
   alerts.map((alert) => (
-    <div key={alert?.id} className={`alert alert-${alert?.alertType} fw-normal`}>
+    <div key={alert.id} className={`alert alert-${alert.alertType} fw-normal`}>
       {alert.msg}
     </div>
   ));

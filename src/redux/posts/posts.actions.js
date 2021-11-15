@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { setAlert } from '../alert/alert.actions';
-import { getTags } from '../tags/tags.actions';
+
 import {
     GET_POSTS,
     GET_POST,
@@ -10,11 +10,11 @@ import {
     DELETE_POST,
     ADD_POST,
 } from './posts.types';
-axios.defaults.baseURL = "https://qa-server-demo.herokuapp.com";
+
 // Get posts
-export const getPosts = (searchQuery) => async(dispatch) => {
+export const getPosts = () => async(dispatch) => {
     try {
-        const res = await axios.get(`/api/posts/?search=${encodeURIComponent(searchQuery)}`);
+        const res = await axios.get('/api/posts');
 
         dispatch({
             type: GET_POSTS,
@@ -22,7 +22,7 @@ export const getPosts = (searchQuery) => async(dispatch) => {
         });
 
     } catch (err) {
-        dispatch(setAlert((err?.response?.data?.message || ''), 'danger'));
+        dispatch(setAlert(err.response.data.message, 'danger'));
 
         dispatch({
             type: POST_ERROR,
@@ -31,25 +31,6 @@ export const getPosts = (searchQuery) => async(dispatch) => {
     }
 };
 // Get post
-// export const searchPost = (searchQuery) => async(dispatch) => {
-//     try {
-//         const res = await axios.get(`/api/posts/?search=${searchQuery}`);
-
-//         dispatch({
-//             type: SEARCH_POSTS,
-//             payload: res.data.data,
-//         });
-
-//     } catch (err) {
-//         dispatch(setAlert(err.response.data.message, 'danger'));
-
-//         dispatch({
-//             type: POST_ERROR,
-//             payload: { msg: err.response.statusText, status: err.response.status },
-//         });
-//     }
-// };
-
 export const getPost = (id) => async(dispatch) => {
     try {
         const res = await axios.get(`/api/posts/${id}`);
@@ -59,7 +40,7 @@ export const getPost = (id) => async(dispatch) => {
             payload: res.data.data,
         });
     } catch (err) {
-        dispatch(setAlert((err?.response?.data?.message || ''), 'danger'));
+        dispatch(setAlert(err.response.data.message, 'danger'));
 
         dispatch({
             type: POST_ERROR,
@@ -77,7 +58,8 @@ export const getUserPost = (id) => async(dispatch) => {
             payload: res.data.data,
         });
     } catch (err) {
-        dispatch(setAlert((err?.response?.data?.message || ''), 'danger'));
+        dispatch(setAlert(err.response.data.message, 'danger'));
+
         dispatch({
             type: POST_ERROR,
             payload: { msg: err.response.statusText, status: err.response.status },
@@ -94,7 +76,8 @@ export const getTopPosts = () => async(dispatch) => {
             payload: res.data.data,
         });
     } catch (err) {
-        dispatch(setAlert((err?.response?.data?.message || ''), 'danger'));
+        dispatch(setAlert(err.response.data.message, 'danger'));
+
         dispatch({
             type: POST_ERROR,
             payload: { msg: err.response.statusText, status: err.response.status },
@@ -105,14 +88,14 @@ export const getTopPosts = () => async(dispatch) => {
 //GET TAG POSTS
 export const getTagPosts = (tagName) => async(dispatch) => {
     try {
-        const res = await axios.get(`/api/posts/tag/${encodeURIComponent(tagName)}`);
+        const res = await axios.get(`/api/posts/tag/${tagName}`);
 
         dispatch({
             type: GET_TAG_POSTS,
             payload: res.data.data,
         });
     } catch (err) {
-        dispatch(setAlert((err?.response?.data?.message || ''), 'danger'));
+        dispatch(setAlert(err.response.data.message, 'danger'));
 
         dispatch({
             type: POST_ERROR,
@@ -142,7 +125,7 @@ export const addPost = (formData, cb) => async(dispatch) => {
         cb(null, res.data);
 
     } catch (err) {
-
+        dispatch(setAlert(err.response.data.message, 'danger'));
 
         dispatch({
             type: POST_ERROR,
@@ -163,9 +146,8 @@ export const deletePost = (id) => async(dispatch) => {
         });
 
         dispatch(setAlert(res.data.message, 'success'));
-        dispatch(getTags());
     } catch (err) {
-        dispatch(setAlert(err?.response?.data?.message, 'danger'));
+        dispatch(setAlert(err.response.data.message, 'danger'));
 
         dispatch({
             type: POST_ERROR,
@@ -173,22 +155,3 @@ export const deletePost = (id) => async(dispatch) => {
         });
     }
 };
-export const Vote = (postId, voteAction) => async(dispatch) => {
-    try {
-        const res = await axios.get(`/api/vote/post/${postId}/${voteAction}`);
-        dispatch({
-            type: GET_POST,
-            payload: res.data.data,
-        });
-        dispatch(setAlert(res.data.message, 'success'));
-        dispatch(getPost(postId));
-    } catch (err) {
-        dispatch(setAlert((err?.response?.data?.message || ''), 'danger'));
-
-        dispatch({
-            type: POST_ERROR,
-            payload: { msg: err.response.statusText, status: err.response.status },
-        });
-    }
-
-}

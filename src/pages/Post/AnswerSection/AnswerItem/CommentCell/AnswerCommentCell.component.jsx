@@ -48,33 +48,33 @@ const AnswerCommentCell = ({
             ) : (
               (comment || []).map((comment) => (
                 
-                <li className='answer-comments-item' key={comment?.id}>
+                <li className='answer-comments-item' key={comment.id}>
                   <div className='comment-text fc-black-800'>
                     <div className='answer-comment-body'>
-                      <span className='body'>{comment?.body}</span>
+                      <span className='body'>{comment.body}</span>
                       &nbsp;&ndash;&nbsp;
                       <TagBadge
-                        tag_name={comment?.username}
+                        tag_name={comment.username}
                         size={'s-tag'}
-                        link={`/users/${comment?.user_id}`}
+                        link={`/users/${comment.user_id}`}
                         display={'inline'}
                       />
                       <span
-                        title={moment(comment?.created_at).fromNow(true)}
+                        title={moment(comment.created_at).fromNow(true)}
                         style={{color: '#959ca3 !important'}}
                         className='date fs-body1'
                       >
-                        {moment(comment?.created_at).fromNow(true)} ago
+                        {moment(comment.created_at).fromNow(true)} ago
                       </span>
                     </div>
-                    {!auth?.loading &&
-                      auth?.isAuthenticated &&
-                      (comment?.user_id) === auth?.user?.id && (
+                    {!auth.loading &&
+                      auth.isAuthenticated &&
+                      (comment.user_id) === auth.user.id && (
                         <Link
                           className='s-tag s-tag__moderator'
                           style={{marginTop: '4px'}}
                           title='Delete the comment'
-                          onClick={(e) => deleteAnswerComment(postId,answerId,comment?.id)}
+                          onClick={(e) => deleteAnswerComment(postId,answerId,comment.id)}
                           to={`/questions/${postId}`}
                         >
                           delete
@@ -87,7 +87,7 @@ const AnswerCommentCell = ({
           </ul>
         </div>
         <div className='add-comment'>
-          {!auth?.loading && auth?.isAuthenticated ? (
+          {!auth.loading && auth.isAuthenticated ? (
             <Fragment>
               <form className='comment-form' onSubmit={(e) => handleSubmit(e)}>
                 <div>

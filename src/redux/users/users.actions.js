@@ -3,7 +3,6 @@ import { GET_USERS, GET_USER, USER_ERROR } from './users.types';
 import axios from 'axios';
 
 // Get users
-axios.defaults.baseURL="https://qa-server-demo.herokuapp.com";
 export const getUsers = () => async(dispatch) => {
     try {
         const res = await axios.get('/api/users');
@@ -14,7 +13,7 @@ export const getUsers = () => async(dispatch) => {
     } catch (err) {
         dispatch({
             type: USER_ERROR,
-            payload: { msg: err?.response?.statusText, status: err?.response?.status },
+            payload: { msg: err.response.statusText, status: err.response.status },
         });
     }
 };
@@ -30,7 +29,7 @@ export const getUser = (id) => async(dispatch) => {
     } catch (err) {
         dispatch({
             type: USER_ERROR,
-            payload: { msg: err?.response?.statusText, status: err?.response?.status },
+            payload: { msg: err.response.statusText, status: err.response.status },
         });
     }
 };

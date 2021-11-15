@@ -1,40 +1,40 @@
-import { GET_TAG, GET_TAGS, TAG_ERROR } from './tags.types';
+import {GET_TAG, GET_TAGS, TAG_ERROR} from './tags.types';
 import axios from 'axios';
-import { setAlert } from '../alert/alert.actions';
-axios.defaults.baseURL="https://qa-server-demo.herokuapp.com";
-export const getTag = (tagName) => async(dispatch) => {
-    try {
-        const res = await axios.get(`/api/tags/${encodeURIComponent(tagName)}`);
+import {setAlert} from '../alert/alert.actions';
 
-        dispatch({
-            type: GET_TAG,
-            payload: res.data.data,
-        });
-    } catch (err) {
-        // dispatch(() => history.push('/questions'))
-        dispatch(setAlert(err?.response?.data?.message, 'danger'));
+export const getTag = (tagName) => async (dispatch) => {
+  try {
+    const res = await axios.get(`/api/tags/${tagName}`);
 
-        dispatch({
-            type: TAG_ERROR,
-            payload: { msg: err.response.statusText, status: err.response.status },
-        });
-    }
+    dispatch({
+      type: GET_TAG,
+      payload: res.data.data,
+    });
+  } catch (err) {
+    // dispatch(() => history.push('/questions'))
+    dispatch(setAlert(err.response.data.message, 'danger'));
+
+    dispatch({
+      type: TAG_ERROR,
+      payload: {msg: err.response.statusText, status: err.response.status},
+    });
+  }
 };
 
-export const getTags = () => async(dispatch) => {
-    try {
-        const res = await axios.get('/api/tags');
+export const getTags = () => async (dispatch) => {
+  try {
+    const res = await axios.get('/api/tags');
 
-        dispatch({
-            type: GET_TAGS,
-            payload: res.data.data,
-        });
-    } catch (err) {
-        dispatch(setAlert(err?.response?.data?.message, 'danger'));
+    dispatch({
+      type: GET_TAGS,
+      payload: res.data.data,
+    });
+  } catch (err) {
+    dispatch(setAlert(err.response.data.message, 'danger'));
 
-        dispatch({
-            type: TAG_ERROR,
-            payload: { msg: err.response.statusText, status: err.response.status },
-        });
-    }
+    dispatch({
+      type: TAG_ERROR,
+      payload: {msg: err.response.statusText, status: err.response.status},
+    });
+  }
 };

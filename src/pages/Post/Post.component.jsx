@@ -17,17 +17,15 @@ const Post = ({getPost, post: {post, loading}, match}) => {
     getPost(match.params.id);
     // eslint-disable-next-line
   }, [getPost]);
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+
   return loading || post === null ? (
     <Spinner type='page' width='75px' height='200px' />
   ) : (
     <Fragment>
-      <PageTitle title={`${post?.title}`} />
+      <PageTitle title={`${post.title}`} />
       <div id='mainbar' className='post'>
         <div className='question-header fc-black-800 pl24'>
-          <h1>{post?.title}</h1>
+          <h1>{post.title}</h1>
           <div>
             <LinkButton
               text={'Ask Question'}
@@ -39,14 +37,14 @@ const Post = ({getPost, post: {post, loading}, match}) => {
         <div className='question-info fc-black-800 pl24'>
           <div className='grid-cell'>
             <span className='fc-light'>Asked</span>
-            <time dateTime={moment(post?.created_at).fromNow(true)}>
-              {moment(post?.created_at).fromNow(true)} ago  </time>
+            <time dateTime={moment(post.created_at).fromNow(true)}>
+              {moment(post.created_at).fromNow(true)} ago  </time>
 
           
           </div>
        <div className='grid-cell'>
        <span className='fc-light'>Viewed</span>
-            <span className='fc-dark'>{post?.views}</span>
+            <span className='fc-dark'>{post.views}</span>
             <span className='fc-dark'>times</span>
        </div>
         

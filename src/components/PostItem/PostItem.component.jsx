@@ -17,7 +17,6 @@ const PostItem = ({
     title,
     body,
     tagname,
-    votes,
     username,
     user_id,
     answer_count,
@@ -28,37 +27,39 @@ const PostItem = ({
 }) => {
   const answerVoteUp = (
     <div className="vote answer">
-      <span className="vote-count" style={{color:"white"}}>{answer_count}</span>
-      <div className="count-text" style={{color:"white"}}>Answers</div>
+      <span className="vote-count fc-green-500">{answer_count}</span>
+      <div className="count-text">answers</div>
     </div>
   );
 
   const answerVoteDown = (
     <div className="vote">
       <span className="vote-count">{answer_count}</span>
-      <div className="count-text">Answers</div>
+      <div className="count-text">answers</div>
     </div>
   );
-  const vote_count = (votes||['']).reduce((count,v)=>{
-    return count + v.vote
-  },0)
+
   return (
     <div className="posts">
       <div className="stats-container fc-black-500">
         <div className="stats">
           <div className="vote">
-            <span className="vote-count">{vote_count}</span>
-            <div className="count-text"><span style={{color:"#6eb183",fontSize:"1.3em"}}>Votes</span> </div>
+            <span className="vote-count">{comment_count}</span>
+            <div className="count-text">comments</div>
           </div>
           {answer_count > 0 ? answerVoteUp : answerVoteDown}
           <div className="vote">
-            <div className="count-text" style={{color:'#f77d25',fontSize:"1.3em"}}>{views} Views</div>
+            <span className="vote-count">{tagname ? 1 : 0}</span>
+            <div className="count-text">tags</div>
+          </div>
+          <div className="vote">
+            <div className="count-text">{views} views</div>
           </div>
         </div>
       </div>
       <div className="summary">
         <h3>
-          <Link to={`/questions/${id}`}>{htmlSubstring(title,150)}</Link>
+          <Link to={`/questions/${id}`}>{title}</Link>
         </h3>
         <div
           className="brief"
@@ -70,7 +71,7 @@ const PostItem = ({
         <div className="tags-container" >
           {(tagname || []).map((tag) => (
             <div className="tags-field">
-              <TagBadge tag_name={(tag)} size={"s-tag"} float={"left"} />
+              <TagBadge tag_name={tag} size={"s-tag"} float={"left"} />
             </div>
           ))}
         </div>

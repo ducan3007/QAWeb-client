@@ -50,32 +50,32 @@ const CommentCell = ({
       <div className='comments-cell'>
         <div className='comments'>
           <ul className='comments-list'>
-            {comment?.loading === null ? (
+            {comment.loading === null ? (
               <Spinner width='25px' height='25px' />
             ) : (
-              comment?.comments?.map((comment) => (
-                <li className='comments-item' key={comment?.id}>
+              comment.comments.map((comment) => (
+                <li className='comments-item' key={comment.id}>
                   <div className='comment-text fc-black-800'>
                     <div className='comment-body'>
-                      <span className='body'>{comment?.body}</span>
+                      <span className='body'>{comment.body}</span>
                       &nbsp;&ndash;&nbsp;
                       <TagBadge
-                        tag_name={comment?.username}
+                        tag_name={comment.username}
                         size={'s-tag'}
-                        link={`/users/${comment?.user_id}`}
+                        link={`/users/${comment.user_id}`}
                         display={'inline'}
                       />
                       <span
-                        title={moment(comment?.created_at).fromNow(true)}
+                        title={moment(comment.created_at).fromNow(true)}
                         style={{color: '#959ca3 !important'}}
                         className='date fs-body1'
                       >
-                        {moment(comment?.created_at).fromNow(true)} ago
+                        {moment(comment.created_at).fromNow(true)} ago
                       </span>
                     </div>
-                    {!auth?.loading &&
-                      auth?.isAuthenticated &&
-                      (comment?.user_id) === auth?.user?.id && (
+                    {!auth.loading &&
+                      auth.isAuthenticated &&
+                      (comment.user_id) === auth.user.id && (
                         <Link
                           className='s-tag s-tag__moderator'
                           style={{marginTop: '4px'}}
@@ -93,7 +93,7 @@ const CommentCell = ({
           </ul>
         </div>
         <div className='add-comment'>
-          {!auth?.loading && auth?.isAuthenticated ? (
+          {!auth.loading && auth.isAuthenticated ? (
             <Fragment>
               <form className='comment-form' onSubmit={(e) => handleSubmit(e)}>
                 <div>

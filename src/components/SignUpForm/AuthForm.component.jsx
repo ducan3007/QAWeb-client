@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import {login} from '../../redux/auth/auth.actions';
 import {register} from '../../redux/auth/auth.actions';
 
+import {ReactComponent as Logo} from '../../assets/LogoGlyphMd.svg';
 
 import './AuthForm.styles.scss';
 
@@ -59,6 +60,7 @@ const AuthForm = ({register, login, action}) => {
     <Fragment>
       <div>
         <div className='icon-holder'>
+          <Logo className='icon' />
         </div>
         <div className='form-container'>
           <form className='login-form' onSubmit={(e) => onSubmit(e)}>

@@ -11,7 +11,6 @@ import './HomePage.styles.scss';
 
 const HomePage = ({getTopPosts, post: {posts, loading}}) => {
   useEffect(() => {
-    
     getTopPosts();
   }, [getTopPosts]);
   
@@ -33,12 +32,12 @@ const HomePage = ({getTopPosts, post: {posts, loading}}) => {
         </div>
         <div className='questions-tabs'>
           <span>
-            {new Intl.NumberFormat('en-IN').format((posts|| []).length)} questions
+            {new Intl.NumberFormat('en-IN').format(posts.length)} questions
           </span>
         </div>
         <div className='questions'>
-          {(posts||[]).map((post) => (
-            <PostItem key={post?.id} post={post} />
+          {posts.map((post) => (
+            <PostItem key={post.id} post={post} />
           ))}
         </div>
       </div>

@@ -53,7 +53,7 @@ const AskForm = ({ addPost }) => {
                   Be specific and imagine you’re asking a question to another
                   person.
                   <br />
-                  Enter title with minimum 10 characters
+                  Enter title with minimum 15 characters
                 </p>
               </label>
               <input
@@ -74,7 +74,7 @@ const AskForm = ({ addPost }) => {
                   Include all the information someone would need to answer your
                   question.
                   <br />
-                  Enter body with minimum 10 characters
+                  Enter body with minimum 30 characters
                 </p>
               </label>
               <div className="s-textarea rich-text-editor-container">
@@ -92,7 +92,7 @@ const AskForm = ({ addPost }) => {
                 Tag Name
                 <p className="tag-desc fw-normal fs-caption">
                   Add up to 5 tags to describe what your question is about, each
-                  seperated by a commas ",".
+                  seperated by a comma.
                 </p>
               </label>
               <input

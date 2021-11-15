@@ -9,8 +9,7 @@ import {
 import axios from 'axios';
 import { setAlert } from '../alert/alert.actions';
 import { getAnswers } from '../answers/answers.actions';
-import { getPost } from '../posts/posts.actions';
-axios.defaults.baseURL="https://qa-server-demo.herokuapp.com";
+
 export const getComments = (id) => async(dispatch) => {
     try {
         const res = await axios.get(`/api/posts/comments/${id}`);
@@ -47,11 +46,11 @@ export const addComment = (postId, formData) => async(dispatch) => {
             payload: res.data.data,
         });
 
-        dispatch(setAlert(res?.data?.message, 'success'));
-        dispatch(getPost(postId));
+        dispatch(setAlert(res.data.message, 'success'));
+
         dispatch(getComments(postId));
     } catch (err) {
-        //  dispatch(setAlert(err.response.data.message, 'danger'));
+        dispatch(setAlert(err.response.data.message, 'danger'));
 
         dispatch({
             type: COMMENT_ERROR,
@@ -71,9 +70,8 @@ export const deleteComment = (PostId, CommentId) => async(dispatch) => {
         });
 
         dispatch(setAlert(res.data.message, 'success'));
-        dispatch(getPost(PostId));
     } catch (err) {
-        dispatch(setAlert((err?.response?.data?.message || ''), 'danger'));
+        dispatch(setAlert(err.response.data.message, 'danger'));
 
         dispatch({
             type: COMMENT_ERROR,
@@ -104,7 +102,7 @@ export const addAnswerComment = (PostId, answerId, formData) => async(dispatch) 
         dispatch(getAnswers(PostId));
 
     } catch (err) {
-        dispatch(setAlert((err?.response?.data?.message || ''), 'danger'));
+        dispatch(setAlert(err.response.data.message, 'danger'));
 
         dispatch({
             type: COMMENT_ERROR,
@@ -142,7 +140,7 @@ export const deleteAnswerComment = (PostId, AnswerId, CommentId) => async(dispat
         dispatch(setAlert(res.data.message, 'success'));
         dispatch(getAnswers(PostId));
     } catch (err) {
-        dispatch(setAlert((err?.response?.data?.message || ''), 'danger'));
+        dispatch(setAlert(err.response.data.message, 'danger'));
 
         dispatch({
             type: COMMENT_ERROR,

@@ -10,7 +10,7 @@ import './QuestionSection.styles.scss';
 
 const QuestionSection = ({
   post: {
-    post: {id, answer_count, comment_count, tagname,votes},
+    post: {id, answer_count, comment_count},
   },
   postId,
 }) => {
@@ -18,7 +18,7 @@ const QuestionSection = ({
     <Fragment>
       <div className='question'>
         <div className='post-layout'>
-          <VoteCell answerCount={answer_count} commentCount={comment_count} tagname={tagname} postId={postId} />
+          <VoteCell answerCount={answer_count} commentCount={comment_count} />
           <PostCell postId={postId} />
           <CommentCell postId={postId} />
         </div>

@@ -1,0 +1,31 @@
+.page{
+    display: flex;
+    margin-top: 60px;
+}
+
+#content{
+    display: block;
+    width: 56%;
+    margin: 0;
+    #content-inner{
+        padding: 0 1%;
+        box-sizing: border-box;
+        width: 100%;
+    }
+}
+
+@media(max-width: 1100px){
+    .page{
+        display: flex;
+        #content{
+            flex: 1;
+        }
+    }
+}
+
+@media(max-width: 680px){
+    #content{
+        width: 100%;
+        padding: 0 !important;
+    }
+}

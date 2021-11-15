@@ -1,30 +1,31 @@
-import React, {Fragment} from 'react';
-import {Link, useHistory} from 'react-router-dom';
-import {connect} from 'react-redux';
+import React, { Fragment } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import {logout} from '../../redux/auth/auth.actions';
+import { logout } from '../../redux/auth/auth.actions';
 
-import {ReactComponent as Search} from '../../assets/Search.svg';
-import {ReactComponent as Logo} from '../../assets/LogoMd.svg';
+import { ReactComponent as Search } from '../../assets/Search.svg';
+import { ReactComponent as Logo } from '../../assets/LogoMd.svg';
+import { ReactComponent as Menu } from '../../assets/Hamburger.svg'
 import Spinner from '../Spinner/Spinner.component';
 import LinkButton from '../LinkButton/LinkButton.component';
 
 import './Header.styles.scss';
 
-const Header = ({auth: {isAuthenticated, loading, user}, logout}) => {
-  let history  = useHistory();
-  
-  
+const Header = ({ auth: { isAuthenticated, loading, user }, logout }) => {
+  let history = useHistory();
+
+
   const authLinks = (
     <div className='btns'>
       {loading || user === null ? (
         <Spinner width='50px' height='50px' />
       ) : (
-        <Link to={`/users/${user?.id}`} title={user?.username}>
+        <Link to={`/users/${user.id}`} title={user.username}>
           <img
             alt='user-logo'
             className='logo'
-            src={`https://secure.gravatar.com/avatar/${user?.id}?s=164&d=identicon`}
+            src={`https://secure.gravatar.com/avatar/${user.id}?s=164&d=identicon`}
           />
         </Link>
       )}
@@ -59,6 +60,9 @@ const Header = ({auth: {isAuthenticated, loading, user}, logout}) => {
   ) : (
     <Fragment>
       <nav className='navbar fixed-top navbar-expand-lg navbar-light bs-md'>
+        <div className='hiden'>
+          <Menu />
+        </div>
         <Link className='navbar-brand' to='/'>
           <Logo />
         </Link>
@@ -100,4 +104,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, {logout})(Header);
+export default connect(mapStateToProps, { logout })(Header);
