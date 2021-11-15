@@ -11,6 +11,7 @@ import './HomePage.styles.scss';
 
 const HomePage = ({getTopPosts, post: {posts, loading}}) => {
   useEffect(() => {
+    
     getTopPosts();
   }, [getTopPosts]);
   
