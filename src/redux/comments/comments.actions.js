@@ -10,7 +10,6 @@ import axios from 'axios';
 import { setAlert } from '../alert/alert.actions';
 import { getAnswers } from '../answers/answers.actions';
 import { getPost } from '../posts/posts.actions';
-axios.defaults.baseURL="https://qa-server-demo.herokuapp.com";
 export const getComments = (id) => async(dispatch) => {
     try {
         const res = await axios.get(`/api/posts/comments/${id}`);

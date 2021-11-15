@@ -1,7 +1,7 @@
 import { GET_TAG, GET_TAGS, TAG_ERROR } from './tags.types';
 import axios from 'axios';
 import { setAlert } from '../alert/alert.actions';
-axios.defaults.baseURL="https://qa-server-demo.herokuapp.com";
+
 export const getTag = (tagName) => async(dispatch) => {
     try {
         const res = await axios.get(`/api/tags/${encodeURIComponent(tagName)}`);
