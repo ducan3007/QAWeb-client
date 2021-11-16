@@ -12,6 +12,25 @@
     padding: 2px 2px;
 }
 
+.subForm{
+    background-color: #000000;
+    margin: 2px 2px 0;
+    position: relative;
+    height: 40px;
+    top: 60px;
+    input{
+        width: 100%;
+        height: 100%;
+        border: none;
+        &:focus{
+            border-color: #2b5f8a;
+            box-shadow: 0 0 0 4px #378ad326;
+            color: #fff;
+            outline: 0;
+        }
+    }
+}
+
 * {
     color: black;
 }
@@ -30,7 +49,7 @@
     box-sizing: border-box;
 }
 
-.hiden{
+.hidden{
     display: none;
 }
 
@@ -106,11 +125,43 @@
 }
 
 @media (max-width:780px){
-    .search-box{
+    .navbar-brand{
+        margin-left: 0px;
+    }
+
+    #search{
         display: none;
     }
 
-    .hiden{
+    .hidden{
         display: block;
+    }
+
+    .fixed-top{
+        display: flex;
+        justify-content: space-between;
+        .flex-item{
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            .searchBtn{
+                margin-right: 5px;
+                padding: 10px;
+                box-sizing: content-box;
+                &:hover{
+                    cursor: pointer;
+                    background-color: #edeff1;
+                }
+            }
+            .menu{
+                margin-left: 10px;
+                padding: 10px;
+                box-sizing: content-box;
+                &:hover{
+                    cursor: pointer;
+                    background-color: #edeff1;
+                }
+            }
+        }
     }
 }

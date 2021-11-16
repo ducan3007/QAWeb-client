@@ -18,3 +18,11 @@ body {
 a {
     text-decoration: none !important;
 }
+
+.MenuHidden{
+    z-index: 2;
+    position: relative;
+    top: 0;
+    left: 0;
+    display: none;
+}

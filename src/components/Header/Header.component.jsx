@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -6,13 +6,14 @@ import { logout } from '../../redux/auth/auth.actions';
 
 import { ReactComponent as Search } from '../../assets/Search.svg';
 import { ReactComponent as Logo } from '../../assets/LogoMd.svg';
-import { ReactComponent as Menu } from '../../assets/Hamburger.svg'
 import Spinner from '../Spinner/Spinner.component';
+import SideMenuBar from '../MenuBar/SideMenuBar.component';
 import LinkButton from '../LinkButton/LinkButton.component';
 
 import './Header.styles.scss';
 
 const Header = ({ auth: { isAuthenticated, loading, user }, logout }) => {
+  const [show, setShow] = useState(false);
   let history = useHistory();
 
 
@@ -38,14 +39,13 @@ const Header = ({ auth: { isAuthenticated, loading, user }, logout }) => {
     </div>
   );
 
-  const authTabs = (
-    <div className='s-navigation'>
-      {/* <Link to='/' className='s-navigation--item is-selected'>
-        Products
-      </Link> */}
-    </div>
-  );
-
+  // const authTabs = (
+  //   <div className='s-navigation'>
+  //     <Link to='/' className='s-navigation--item is-selected'>
+  //       Products
+  //     </Link>
+  //   </div>
+  // );
 
 
   const guestLinks = (
@@ -55,20 +55,38 @@ const Header = ({ auth: { isAuthenticated, loading, user }, logout }) => {
     </div>
   );
 
+  const SearchBar = () => {
+    return (
+      <form
+          onSubmit={(e) => history.push(`/questions`)}
+          className = 'subForm'
+          autoComplete='off'
+      >
+        <input
+              autoComplete='off'
+              type='text'
+              name='search'
+              maxLength='35'
+              placeholder='Search...'
+            />
+      </form>
+    );
+  } 
+
   return loading ? (
     ''
   ) : (
     <Fragment>
       <nav className='navbar fixed-top navbar-expand-lg navbar-light bs-md'>
-        <div className='hiden'>
-          <Menu />
+        <div className='flex-item'>
+          <SideMenuBar className='hidden menu' />
+          <Link className='navbar-brand' to='/'>
+            <Logo />
+          </Link>
         </div>
-        <Link className='navbar-brand' to='/'>
-          <Logo />
-        </Link>
-        {!loading && (
+        {/* {!loading && (
           <Fragment>{isAuthenticated ? authTabs : ''}</Fragment>
-        )}
+        )} */}
         <form
           id='search'
           onSubmit={(e) => history.push(`/questions`)}
@@ -87,10 +105,17 @@ const Header = ({ auth: { isAuthenticated, loading, user }, logout }) => {
             <Search />
           </div>
         </form>
-        {!loading && (
-          <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
-        )}
+        <div className='flex-item'>
+          
+            
+            <Search className='hidden searchBtn' onClick = {() => setShow(!show)} />
+          
+          {!loading && (
+            <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
+          )}
+        </div>
       </nav>
+      {show && <SearchBar/>}
     </Fragment>
   );
 };

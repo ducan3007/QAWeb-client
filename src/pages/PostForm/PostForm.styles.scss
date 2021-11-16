@@ -46,3 +46,14 @@
         }
     }
 }
+
+@media (max-width: 600px){
+    .post-form-container{
+        max-width: 100%;
+        width: 100%;
+        margin-left: 0;
+        .post-form-content{
+            width: 100%;
+        }
+    }
+}
