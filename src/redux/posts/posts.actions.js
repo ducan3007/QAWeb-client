@@ -143,7 +143,7 @@ export const addPost = (formData, cb) => async(dispatch) => {
 
     } catch (err) {
 
-
+        dispatch(setAlert((err?.response?.data?.message), 'danger'));
         dispatch({
             type: POST_ERROR,
             payload: { msg: err.response.statusText, status: err.response.status },
