@@ -39,15 +39,6 @@ const Header = ({ auth: { isAuthenticated, loading, user }, logout }) => {
     </div>
   );
 
-  // const authTabs = (
-  //   <div className='s-navigation'>
-  //     <Link to='/' className='s-navigation--item is-selected'>
-  //       Products
-  //     </Link>
-  //   </div>
-  // );
-
-
   const guestLinks = (
     <div className='btns'>
       <LinkButton text={'Log in'} link={'/login'} type={'s-btn__primary'} />
@@ -84,9 +75,6 @@ const Header = ({ auth: { isAuthenticated, loading, user }, logout }) => {
             <Logo />
           </Link>
         </div>
-        {/* {!loading && (
-          <Fragment>{isAuthenticated ? authTabs : ''}</Fragment>
-        )} */}
         <form
           id='search'
           onSubmit={(e) => history.push(`/questions`)}

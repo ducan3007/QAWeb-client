@@ -2,7 +2,7 @@ import React, {Fragment} from 'react';
 
 import './VoteCell.styles.scss';
 
-const VoteCell = ({getVote, UpVote, DownVote, Unvote, PostId, auth, answerCount,commentCount}) => {
+const VoteCell = ({answerCount,commentCount}) => {
   
 
 

@@ -16,7 +16,6 @@
             }
         }
         button.button-format.code-block {
-            // code-block has not default icon in react-rte, so we gotta implement it on our own
             span {
                 display: inline-block;
                 width: 22px;

@@ -6,7 +6,6 @@ import {getTagPosts} from '../../redux/posts/posts.actions';
 import {getTag} from '../../redux/tags/tags.actions';
 import handleSorting from '../../services/handleSorting';
 
-// import LinkButton from '../../components/LinkButton/LinkButton.component';
 import PostItem from '../../components/PostItem/PostItem.component';
 import Spinner from '../../components/Spinner/Spinner.component';
 import PageTitle from '../../components/PageTitle/PageTitle.component';
@@ -36,18 +35,6 @@ const TagPage = ({getTag, getTagPosts, tag, post: {posts, loading}, match}) => {
         title={`Questions tagged [${tag.tag.tagname}]`}
       />
       <div id='mainbar' className='questions-page fc-black-800'>
-        {/* <div className='questions-grid'>
-          <h3 className='questions-headline'>
-            Questions tagged <span style={{color:'#0077cc'}}>[{tag.tag.tagname}]</span>
-          </h3>
-          <div className='questions-btn'>
-            <LinkButton
-              text={'Ask Question'}
-              link={'/add/question'}
-              type={'s-btn__primary'}
-            />
-          </div>
-        </div> */}
         <p
           className='fs-body'
           dangerouslySetInnerHTML={{__html: tag.tag.description}}

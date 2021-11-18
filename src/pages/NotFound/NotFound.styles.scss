@@ -1,5 +1,4 @@
 @import url(https://fonts.googleapis.com/css?family=Ubuntu);
-//variables
 $purple: #28254C;
 $l-purple: #332F63;
 $t-purple: #8C8AA7;
@@ -256,7 +255,6 @@ html, body {
       margin-top: 25px;
       transition: background .5s ease;
       overflow: hidden;
-      //-webkit-mask-image: -webkit-radial-gradient(white, black);
 
       &:before {
         content: '';

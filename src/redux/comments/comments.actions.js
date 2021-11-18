@@ -111,21 +111,6 @@ export const addAnswerComment = (PostId, answerId, formData) => async(dispatch) 
     }
 };
 
-// export const getAnswerComments = (id) => async(dispatch) => {
-//     try {
-//         const res = await axios.get(`/api/answers/comments/${id}`);
-
-//         dispatch({
-//             type: GET_COMMENTS,
-//             payload: res.data.data,
-//         });
-//     } catch (err) {
-//         dispatch({
-//             type: COMMENT_ERROR,
-//             payload: { msg: err.response.statusText, status: err.response.status },
-//         });
-//     }
-// };
 
 export const deleteAnswerComment = (PostId, AnswerId, CommentId) => async(dispatch) => {
     try {
