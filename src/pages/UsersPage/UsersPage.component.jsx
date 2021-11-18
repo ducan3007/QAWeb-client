@@ -6,7 +6,6 @@ import handleSorting from '../../services/handleSorting';
 
 import UserPanel from './UserPanel/UserPanel.component';
 import Spinner from '../../components/Spinner/Spinner.component';
-import SearchBox from '../../components/SearchBox/SearchBox.component';
 import ButtonGroup from '../../components/ButtonGroup/ButtonGroup.component';
 
 import './UsersPage.styles.scss';
@@ -16,13 +15,8 @@ const UsersPage = ({getUsers, user: {users, loading}}) => {
     getUsers();
   }, [getUsers]);
 
-  const [fetchSearch, setSearch] = useState('');
+  const [fetchSearch] = useState('');
   const [sortType, setSortType] = useState('Popular');
-
-  const handleChange = (e) => {
-    e.preventDefault();
-    setSearch(e.target.value);
-  };
 
 
   return loading || users === null ? (
@@ -37,11 +31,6 @@ const UsersPage = ({getUsers, user: {users, loading}}) => {
           </span>
         </div>
         <div className='users-box pl16 pr16 pb16'>
-          <SearchBox
-            placeholder={'filter by user'}
-            handleChange={handleChange}
-            width={'200px'}
-          />
           <ButtonGroup
             buttons={['Popular', 'Name', 'Active', 'New Users']}
             selected={sortType}

@@ -9,7 +9,6 @@ import LinkButton from '../../components/LinkButton/LinkButton.component';
 import PostItem from '../../components/PostItem/PostItem.component';
 import Spinner from '../../components/Spinner/Spinner.component';
 import ButtonGroup from '../../components/ButtonGroup/ButtonGroup.component';
-import SearchBox from '../../components/SearchBox/SearchBox.component';
 import PageTitle from '../../components/PageTitle/PageTitle.component';
 
 import './QuestionsPage.styles.scss';
@@ -65,7 +64,6 @@ const QuestionsPage = ({getPosts, post: {posts, loading}}) => {
             <span className='fc-light' style={{fontSize: 15}}>
               Results for <span className='fc-black-900'>{searchQuery}</span> 
             </span>
-            <SearchBox placeholder={'Search...'} name={'search'} pt={'mt8'} />
           </div>
         ) : (
           ''

@@ -6,7 +6,6 @@ import handleSorting from '../../services/handleSorting';
 
 import TagPanel from './TagPanel/TagPanel.component';
 import Spinner from '../../components/Spinner/Spinner.component';
-import SearchBox from '../../components/SearchBox/SearchBox.component';
 import ButtonGroup from '../../components/ButtonGroup/ButtonGroup.component';
 
 import './TagsPage.styles.scss';
@@ -16,13 +15,8 @@ const TagsPage = ({getTags, tag: {tags, loading}}) => {
     getTags();
   }, [getTags]);
 
-  const [fetchSearch, setSearch] = useState('');
+  const [fetchSearch] = useState('');
   const [sortType, setSortType] = useState('Popular');
-
-  const handleChange = (e) => {
-    e.preventDefault();
-    setSearch(e.target.value);
-  };
 
   return loading || tags === null ? (
     <Spinner type='page' width='75px' height='200px' />
@@ -39,11 +33,6 @@ const TagsPage = ({getTags, tag: {tags, loading}}) => {
           <span>{new Intl.NumberFormat('en-IN').format(tags.length)} Tags</span>
         </div>
         <div className='tags-box pl16 pr16 pb16'>
-          <SearchBox
-            placeholder={'filter by tag name'}
-            handleChange={handleChange}
-            width={'200px'}
-          />
           <ButtonGroup
             buttons={['Popular', 'Name', 'New']}
             selected={sortType}
