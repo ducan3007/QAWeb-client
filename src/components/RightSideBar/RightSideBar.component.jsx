@@ -1,6 +1,5 @@
 import React, {Fragment} from 'react';
 
-import SideBarWidget from './SideBarWidget/SideBarWidget.component';
 import TagsWidget from './TagsWidget/TagsWidget.component';
 
 import './RightSideBar.styles.scss';
@@ -9,7 +8,6 @@ const RightSideBar = () => {
   return (
     <Fragment>
       <div className='side-bar'>
-        <SideBarWidget />
         <TagsWidget />
       </div>
     </Fragment>

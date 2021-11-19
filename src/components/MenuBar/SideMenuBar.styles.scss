@@ -1,0 +1,91 @@
+.MenuScreen{
+    background-color: #edeff181;
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    .contain{
+        background-color: white;
+        width: 0;
+        height: 100vh;
+        transition: width 0.3s;
+        position: fixed;
+        top: 0;
+        left: 0;
+        .MenuTap{
+            margin-top: 5%;
+            padding-left: 3%;
+            width: 100%;
+            transition: width 0.3s;
+            .nav_link{
+                p{
+                    width: 100%;
+                    &:hover{
+                        background-color: #edeff1;
+                    }
+                }
+            }
+            .home-link {
+                text-decoration: none;
+                color: #c4c8cc;
+                p {
+                    padding: 5px 5px 5px 5px;
+                    border-right: 3px;
+                    font-size: 13px;
+                }
+                &:hover {
+                    color: #f2f2f3;
+                }
+            }
+            .icon-link {
+                text-decoration: none;
+                color: #c4c8cc;
+                p {
+                    display: flex;
+                    padding: 5px 30px 5px 10px;
+                    margin-bottom: 5px;
+                    border-right: 3px solid transparent;
+                    font-size: 13px;
+                }
+                .icon {
+                    margin-right: 5px;
+                }
+            }
+            .link {
+                text-decoration: none;
+                color: #c4c8cc;
+                p {
+                    padding: 5px 45px 5px 20px;
+                    margin-bottom: 5px;
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    font-size: 13px;
+                }
+                &:hover {
+                    color: #f2f2f3;
+                }
+            }
+            .title {
+                font-size: 12px;
+                margin-bottom: 5px;
+            }
+            .icon {
+                width: 16px;
+                color: grey;
+            }
+        }
+        .title{
+            transition: width 0.3s;
+            background-color: white;
+            padding: 5%;
+            width: 100%;
+            text-align: center;
+            box-sizing: border-box;
+            box-shadow: 0 1px 10px gray;
+        }
+    }
+}

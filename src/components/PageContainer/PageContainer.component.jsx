@@ -2,7 +2,7 @@ import React, {Fragment} from 'react';
 
 import SideBar from '../SideBar/SideBar.component';
 import RightSideBar from '../RightSideBar/RightSideBar.component';
-
+import './PageContainer.styles.scss'
 const PageContainer = ({component: Component}) => {
   return class DefaultPageContainer extends React.Component {
     render() {
