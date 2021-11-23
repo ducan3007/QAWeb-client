@@ -1,6 +1,6 @@
 # Q&AWebApp
 
-### This project was generated with `Node.js(Express.js)`  `MongoDB`  `React.js(Redux)`.
+### This project was generated with `Node.js`  `MongoDB`  `React.js'.
 
 ### Demo : [https://qaweb-client.vercel.app](https://qaweb-client.vercel.app)
 
