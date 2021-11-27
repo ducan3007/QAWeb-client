@@ -13,9 +13,10 @@ const AuthForm = ({register, login, action}) => {
   const [formData, setFormData] = useState({
     username: '',
     password: '',
+    confirmPassword:''
   });
 
-  const {username, password} = formData;
+  const {username, password,confirmPassword} = formData;
 
   const onChange = (e) =>
     setFormData({...formData, [e.target.name]: e.target.value});
@@ -23,7 +24,7 @@ const AuthForm = ({register, login, action}) => {
   const onSubmit = async (e) => {
     e.preventDefault();
     if (action === 'Sign up') {
-      register({username, password});
+      register({username, password, confirmPassword});
     } else {
       login({username, password});
     }
@@ -82,7 +83,23 @@ const AuthForm = ({register, login, action}) => {
                 required
               />
             </div>
-            
+            {
+              (action==='Sign up') ?  
+              ( <div>
+              <label className='form-label s-label fc-black-600'>
+                Confirm Password
+              </label>
+              <input
+                className='form-input s-input'
+                type='password'
+                name='confirmPassword'
+                value={confirmPassword}
+                onChange={(e) => onChange(e)}
+                id='confirmPassword'
+                required
+              />
+            </div>) : ('')
+            }
             <div className='grid gs4 gsy fd-column js-auth-item '>
               <button
                 className='s-btn s-btn__primary'

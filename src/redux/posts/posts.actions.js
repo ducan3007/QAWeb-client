@@ -122,7 +122,7 @@ export const getTagPosts = (tagName) => async(dispatch) => {
 };
 
 // Add post
-export const addPost = (formData, cb) => async(dispatch) => {
+export const addPost = (formData, callback) => async(dispatch) => {
     const config = {
         headers: {
             'Content-Type': 'application/json',
@@ -139,7 +139,7 @@ export const addPost = (formData, cb) => async(dispatch) => {
 
         dispatch(setAlert(res.data.message, 'success'));
         dispatch(getPosts());
-        cb(null, res.data);
+        callback(null, res.data);
 
     } catch (err) {
 
@@ -148,7 +148,7 @@ export const addPost = (formData, cb) => async(dispatch) => {
             type: POST_ERROR,
             payload: { msg: err.response.statusText, status: err.response.status },
         });
-        cb(err, null);
+        callback(err, null);
     }
 };
 

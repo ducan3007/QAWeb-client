@@ -11,7 +11,7 @@ import {
 } from './auth.types';
 
 import setAuthToken from './auth.utils';
-axios.defaults.baseURL="https://qa-server-demo.herokuapp.com";
+ axios.defaults.baseURL="https://qa-server-demo.herokuapp.com";
 // Load User
 export const loadUser = () => async(dispatch) => {
     if (localStorage.token) {
@@ -32,14 +32,14 @@ export const loadUser = () => async(dispatch) => {
 };
 
 // Register User
-export const register = ({ username, password }) => async(dispatch) => {
+export const register = ({ username, password,confirmPassword }) => async(dispatch) => {
     const config = {
         headers: {
             'Content-Type': 'application/json',
         },
     };
 
-    const body = JSON.stringify({ username, password });
+    const body = JSON.stringify({ username, password,confirmPassword });
 
     try {
         const res = await axios.post('/api/users', body, config);
