@@ -22,9 +22,9 @@ const handleSorting = (sortType, page = "") => {
                 (a1.votes || []).reduce((a, b) => {
                     return a + b.vote;
                 }, 0);
-        case "Active":
+        case "Question":
             return (a, b) =>
-                b.posts_count + b.tags_count - (a.posts_count + a.tags_count);
+                b.posts_count - a.posts_count;
         case "Views":
             return (a, b) => b.views - a.views;
         case "Oldest":

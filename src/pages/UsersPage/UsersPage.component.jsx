@@ -42,7 +42,7 @@ const UsersPage = ({ getUsers, user: { users, loading } }) => {
             width={"200px"}
           />
           <ButtonGroup
-            buttons={["Vote", "Name", "Active", "New Users"]}
+            buttons={["Vote", "Name", "Question", "New Users"]}
             selected={sortType}
             setSelected={setSortType}
           />

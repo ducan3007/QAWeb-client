@@ -79,7 +79,7 @@ const QuestionsPage = ({getPosts, post: {posts, loading}}) => {
             } Results
           </span>
           <ButtonGroup
-            buttons={['Newest', 'Top', 'Views', 'Oldest']}
+            buttons={['Newest', 'Votes', 'Views', 'Oldest']}
             selected={sortType}
             setSelected={setSortType}
           />
