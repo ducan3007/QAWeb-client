@@ -23,7 +23,7 @@ const HomePage = ({ getTopPosts, post: { posts, loading } }) => {
           <h3 className="questions-headline">Top Questions</h3>
           <div className="questions-btn">
             <LinkButton
-              text={"Ask Question"}
+              text={"Ask a question"}
               link={"/add/question"}
               type={"s-btn__primary"}
             />

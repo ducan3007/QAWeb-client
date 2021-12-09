@@ -25,7 +25,7 @@ const handleSorting = (sortType, page = "") => {
         case "Question":
             return (a, b) =>
                 b.posts_count - a.posts_count;
-        case "Views":
+        case "View":
             return (a, b) => b.views - a.views;
         case "Oldest":
             return (a, b) => new Date(a.created_at) - new Date(b.created_at);
@@ -37,7 +37,7 @@ const handleSorting = (sortType, page = "") => {
             return (a, b) => a.username.localeCompare(b.username);
         case "Popular users":
             return (a, b) => b.votes - a.votes;
-        case "Votes":
+        case "Vote":
             return (a1, b1) =>
                 (b1.votes || []).reduce((a, b) => {
                     return a + b.vote;

@@ -32,15 +32,6 @@ const UserPage = ({
       <PageTitle title={`User ${user?.username}`} />
       <div id="mainbar" className="user-main-bar pl24 pt24">
         <div className="user-card">
-          <div className="grid--cell s-navigation mb16">
-            <Link
-              to="#"
-              className="s-navigation--item is-selected"
-              data-shortcut="P"
-            >
-              Profile
-            </Link>
-          </div>
           <div className="grid">
             <div className="img-card">
               <div className="avatar-card">

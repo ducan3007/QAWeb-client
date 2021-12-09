@@ -57,7 +57,7 @@ const AnswerItem = ({
                 onClick={(e) => Vote(postId, answerId, "unvote")}
                 to={`/questions/${postId}`}
               >
-                <ArrowUp props={"#df7015"} />
+                <ArrowUp props={"#DF7015"} />
               </Link>
             ) : (
               <Link
@@ -88,7 +88,7 @@ const AnswerItem = ({
                 onClick={(e) => Vote(postId, answerId, "unvote")}
                 to={`/questions/${postId}`}
               >
-                <ArrowDown props={"#df7015"} />
+                <ArrowDown props={"#DF7015"} />
               </Link>
             ) : (
               <Link
@@ -114,7 +114,7 @@ const AnswerItem = ({
                   auth?.isAuthenticated &&
                   user_id === auth?.user?.id && (
                     <Link
-                      className="s-link s-link__danger"
+                      className="s-tag s-tag__moderator"
                       style={{ paddingLeft: "4px" }}
                       title="Delete the answer"
                       onClick={(e) => deleteAnswer(postId, id)}

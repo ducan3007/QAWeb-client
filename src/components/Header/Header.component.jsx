@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import { logout } from '../../redux/auth/auth.actions';
 
 import { ReactComponent as Search } from '../../assets/Search.svg';
-import { ReactComponent as Logo } from '../../assets/LogoMd.svg';
 import Spinner from '../Spinner/Spinner.component';
 import SideMenuBar from '../MenuBar/SideMenuBar.component';
 import LinkButton from '../LinkButton/LinkButton.component';
@@ -14,6 +13,7 @@ import './Header.styles.scss';
 
 const Header = ({ auth: { isAuthenticated, loading, user }, logout }) => {
   const [show, setShow] = useState(false);
+
   let history = useHistory();
 
 
@@ -22,13 +22,13 @@ const Header = ({ auth: { isAuthenticated, loading, user }, logout }) => {
       {loading || user === null ? (
         <Spinner width='50px' height='50px' />
       ) : (
-        <Link to={`/users/${user?.id}`} title={user?.username}>
+        <a href={`/users/${user?.id}`}>
           <img
             alt='user-logo'
             className='logo'
             src={`https://secure.gravatar.com/avatar/${user?.id}?s=164&d=identicon`}
           />
-        </Link>
+        </a>
       )}
       <LinkButton
         text={'Log out'}
@@ -36,6 +36,7 @@ const Header = ({ auth: { isAuthenticated, loading, user }, logout }) => {
         type={'s-btn__filled'}
         handleClick={logout}
       />
+      
     </div>
   );
 
@@ -68,12 +69,14 @@ const Header = ({ auth: { isAuthenticated, loading, user }, logout }) => {
     ''
   ) : (
     <Fragment>
+   
       <nav className='navbar fixed-top navbar-expand-lg navbar-light bs-md'>
         <div className='flex-item'>
           <SideMenuBar className='hidden menu' />
-          <Link className='navbar-brand' to='/'>
-            <Logo />
+          <Link  to='/'>
+          <div className="logo-brand"></div>
           </Link>
+         
         </div>
         <form
           id='search'

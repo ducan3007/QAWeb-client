@@ -56,7 +56,7 @@ const QuestionsPage = ({getPosts, post: {posts, loading}}) => {
           </h3>
           <div className='questions-btn'>
             <LinkButton
-              text={'Ask Question'}
+              text={'Ask a question'}
               link={'/add/question'}
               type={'s-btn__primary'}
             />
@@ -79,7 +79,7 @@ const QuestionsPage = ({getPosts, post: {posts, loading}}) => {
             } Results
           </span>
           <ButtonGroup
-            buttons={['Newest', 'Votes', 'Views', 'Oldest']}
+            buttons={['Newest', 'Vote', 'View', 'Oldest']}
             selected={sortType}
             setSelected={setSortType}
           />

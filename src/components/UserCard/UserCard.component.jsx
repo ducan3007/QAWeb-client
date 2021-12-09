@@ -12,6 +12,8 @@ const UserCard = ({
   float,
   backgroundColor,
 }) => {
+  let askedFromNow = moment(created_at).fromNow();
+
   return (
     <Fragment>
       <div
@@ -20,8 +22,9 @@ const UserCard = ({
       >
         <div className='user-block fc-black-500'>
           <div className='action-time'>
-            {dateType ? dateType : 'Asked'} {moment(created_at).fromNow(true)}{' '}
-            ago
+            {dateType ? dateType : 'Asked '}
+            {askedFromNow}{' '}
+            {}
           </div>
           <div className='user-logo'>
             <Link className='user-link' to={`/users/${user_id}`}>

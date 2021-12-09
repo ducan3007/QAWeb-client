@@ -42,7 +42,7 @@ const TagPage = ({getTag, getTagPosts, tag, post: {posts, loading}, match}) => {
           </h3>
           <div className='questions-btn'>
             <LinkButton
-              text={'Ask Question'}
+              text={'Ask a question'}
               link={'/add/question'}
               type={'s-btn__primary'}
             />
@@ -58,7 +58,7 @@ const TagPage = ({getTag, getTagPosts, tag, post: {posts, loading}, match}) => {
             {tag?.tag?.posts_count <= 1 ? 'Question' : 'Questions'}
           </span>
           <ButtonGroup
-            buttons={['Newest', 'Top', 'Views', 'Oldest']}
+            buttons={['Newest', 'Vote', 'View', 'Oldest']}
             selected={sortType}
             setSelected={setSortType}
           />

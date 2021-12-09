@@ -1,5 +1,5 @@
 .side-bar-container {
-    width: 22%;
+    width: 20%;
     transition: box-shadow ease-in-out .1s, transform ease-in-out .1s;
     position: relative !important;
     background-color: #ffffff;
@@ -42,7 +42,7 @@
                 width: 100%;
                 display: flex;
                 align-items: center;
-                font-size: 13px;
+                font-size: 1.1em;
             }
             &:hover {
                 color: #f2f2f3;
@@ -62,7 +62,6 @@
                 font-weight: 750;
                 background: #eff0f1;
                 color: #000000;
-                border-right: 3px solid #f48024;
             }
             .icon {
                 color: #f2f2f3;

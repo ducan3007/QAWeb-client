@@ -49,7 +49,7 @@ export const register = ({ username, password,confirmPassword }) => async(dispat
             payload: res.data.data,
         });
 
-        dispatch(setAlert(res.data.message, 'success'));
+       
 
         dispatch(loadUser());
     } catch (err) {
@@ -79,7 +79,7 @@ export const login = ({ username, password }) => async(dispatch) => {
             payload: res.data.data,
         });
 
-        dispatch(setAlert(res.data.message, 'success'));
+    
 
         dispatch(loadUser());
     } catch (err) {
@@ -93,7 +93,6 @@ export const login = ({ username, password }) => async(dispatch) => {
 
 //LOGOUT
 export const logout = () => (dispatch) => {
-    dispatch(setAlert('User has logged out', 'success'));
     localStorage.removeItem('token');
 
     dispatch({ type: LOGOUT });

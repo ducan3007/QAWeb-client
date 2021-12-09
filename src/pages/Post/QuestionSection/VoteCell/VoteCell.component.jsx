@@ -50,7 +50,7 @@ const VoteCell = ({
               onClick={(e) => Vote(postId, "unvote")}
               to={`/questions/${postId}`}
             >
-              <ArrowUp props={"#df7015"} />
+              <ArrowUp props={"#DF7015"} />
             </Link>
           ) : (
             <Link
@@ -79,7 +79,7 @@ const VoteCell = ({
               onClick={(e) => Vote(postId, "unvote")}
               to={`/questions/${postId}`}
             >
-              <ArrowDown props={"#df7015"} />
+              <ArrowDown props={"#DF7015"} />
             </Link>
           ) : (
             <Link

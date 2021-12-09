@@ -56,13 +56,18 @@
 }
 
 .navbar-brand {
+    width: 50px;
+    height: 50px;
     margin-left: 90px;
     padding-left: 25px;
     margin-right: 0;
-    &:hover {
-        background-color: #edeff1;
-        border-radius: 1%;
-    }
+}
+
+.logo-brand {
+    width: 45px;
+    height: 45px;
+    background-size: contain;
+    background-image: url('../../assets/logo.png');
 }
 
 .btns {
@@ -106,11 +111,7 @@
     max-width: 50%;
 }
 
-@media(max-width: 1280px) {
-    .navbar-brand {
-        margin-left: 60px;
-    }
-}
+@media(max-width: 1280px) {}
 
 @media(max-width: 1200px) {
     .btns {
@@ -119,18 +120,12 @@
 }
 
 @media (max-width:986px) {
-    .navbar-brand {
-        margin-left: 20px;
-    }
     .btns {
         margin-right: 20px;
     }
 }
 
 @media (max-width:780px) {
-    .navbar-brand {
-        margin-left: 0px;
-    }
     #search {
         display: none;
     }

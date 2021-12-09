@@ -36,7 +36,7 @@ const PostItem = ({
   const answerVoteDown = (
     <div className="vote">
       <span className="vote-count">{answer_count}</span>
-      <div className="count-text">Answers</div>
+      <div className="count-text">Answer</div>
     </div>
   );
   const vote_count = (votes||['']).reduce((count,v)=>{
@@ -48,11 +48,11 @@ const PostItem = ({
         <div className="stats">
           <div className="vote">
             <span className="vote-count">{vote_count}</span>
-            <div className="count-text"><span style={{color:"#6eb183",fontSize:"1.3em"}}>Votes</span> </div>
+            <div className="count-text"><span style={{color:"#6eb183",fontSize:"1.3em"}}>{vote_count <= 1 ? 'Vote' : 'Votes'}</span> </div>
           </div>
           {answer_count > 0 ? answerVoteUp : answerVoteDown}
           <div className="vote">
-            <div className="count-text" style={{color:'#f77d25',fontSize:"1.3em"}}>{views} Views</div>
+            <div className="count-text" style={{color:'#f77d25',fontSize:"1.3em"}}>{views} {views <= 1 ? 'View' : 'Views'}</div>
           </div>
         </div>
       </div>

@@ -180,7 +180,6 @@ export const Vote = (postId, voteAction) => async(dispatch) => {
             type: GET_POST,
             payload: res.data.data,
         });
-        dispatch(setAlert(res.data.message, 'success'));
         dispatch(getPost(postId));
     } catch (err) {
         dispatch(setAlert((err?.response?.data?.message || ''), 'danger'));

@@ -17,7 +17,7 @@ const AnswerSection = ({getAnswers, auth, answer, postId}) => {
     // eslint-disable-next-line
   }, [getAnswers]);
 
-  const [sortType, setSortType] = useState('Votes');
+  const [sortType, setSortType] = useState('Vote');
   return (
     <Fragment>
       <div className='answer'>
@@ -27,7 +27,7 @@ const AnswerSection = ({getAnswers, auth, answer, postId}) => {
               <h2>{answer?.answers?.length} Answers</h2>
             </div>
             <ButtonGroup
-              buttons={['Votes','Newest', 'Oldest']}
+              buttons={['Vote','Newest', 'Oldest']}
               selected={sortType}
               setSelected={setSortType}
             />
