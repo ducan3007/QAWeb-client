@@ -57,7 +57,7 @@ const AnswerItem = ({
                 onClick={(e) => Vote(postId, answerId, "unvote")}
                 to={`/questions/${postId}`}
               >
-                <ArrowUp props={"#DF7015"} />
+                <ArrowUp props={"#f59964"} />
               </Link>
             ) : (
               <Link
@@ -88,7 +88,7 @@ const AnswerItem = ({
                 onClick={(e) => Vote(postId, answerId, "unvote")}
                 to={`/questions/${postId}`}
               >
-                <ArrowDown props={"#DF7015"} />
+                <ArrowDown props={"#f59964"} />
               </Link>
             ) : (
               <Link
@@ -129,7 +129,7 @@ const AnswerItem = ({
               created_at={created_at}
               user_id={user_id}
               username={username}
-              dateType={"answered"}
+              dateType={"answered "}
             />
           </div>
           <AnswerCommentCell

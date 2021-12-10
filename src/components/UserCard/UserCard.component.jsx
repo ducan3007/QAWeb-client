@@ -22,7 +22,7 @@ const UserCard = ({
       >
         <div className='user-block fc-black-500'>
           <div className='action-time'>
-            {dateType ? dateType : 'Asked '}
+            {dateType ? dateType : 'asked '}
             {askedFromNow}{' '}
             {}
           </div>
