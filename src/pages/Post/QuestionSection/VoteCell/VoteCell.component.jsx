@@ -38,7 +38,7 @@ const VoteCell = ({
           {!auth.loading && auth.isAuthenticated && upVoted === undefined ? (
             <button
               className="vote-up"
-              title="This answer is usefull"
+              title="This question is usefull"
               onClick={(e) => Vote(postId, "upvote")}
             >
               <ArrowUp />
@@ -46,7 +46,7 @@ const VoteCell = ({
           ) : !auth.loading && auth.isAuthenticated && upVoted ? (
             <Link
               className="vote-up"
-              title="This answer is usefull"
+              title="This question is usefull"
               onClick={(e) => Vote(postId, "unvote")}
               to={`/questions/${postId}`}
             >
@@ -55,7 +55,7 @@ const VoteCell = ({
           ) : (
             <Link
               className="vote-up"
-              title="This answer is usefull"
+              title="This question is usefull"
               to={`/login`}
             >
               <ArrowUp />
@@ -84,7 +84,7 @@ const VoteCell = ({
           ) : (
             <Link
               className="vote-down"
-              title="This answer is usefull"
+              title="This question is usefull"
               to={`/login`}
             >
               <ArrowDown />
