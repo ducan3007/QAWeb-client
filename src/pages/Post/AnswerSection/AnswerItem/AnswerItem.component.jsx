@@ -129,7 +129,7 @@ const AnswerItem = ({
               created_at={created_at}
               user_id={user_id}
               username={username}
-              dateType={"answered "}
+              dateType={""}
             />
           </div>
           <AnswerCommentCell

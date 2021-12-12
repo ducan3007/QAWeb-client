@@ -12,7 +12,7 @@ const UserCard = ({
   float,
   backgroundColor,
 }) => {
-  let askedFromNow = moment(created_at).fromNow();
+  let askedFromNow = moment(created_at).format('lll');
 
   return (
     <Fragment>
@@ -22,7 +22,7 @@ const UserCard = ({
       >
         <div className='user-block fc-black-500'>
           <div className='action-time'>
-            {dateType ? dateType : 'asked '}
+            {dateType ? dateType : ''}
             {askedFromNow}{' '}
             {}
           </div>

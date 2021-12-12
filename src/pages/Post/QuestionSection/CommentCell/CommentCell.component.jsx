@@ -66,11 +66,11 @@ const CommentCell = ({
                         display={'inline'}
                       />
                       <span
-                        title={moment(comment?.created_at).fromNow(true)}
+                        title={moment(comment?.created_at).format('lll')}
                         style={{color: '#959ca3 !important'}}
                         className='date fs-body1'
                       >
-                        {moment(comment?.created_at).fromNow(true)} ago
+                        {moment(comment?.created_at).format('lll')}
                       </span>
                     </div>
                     {!auth?.loading &&
