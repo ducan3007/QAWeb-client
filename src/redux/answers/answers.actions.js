@@ -76,7 +76,7 @@ export const addAnswer = (postId, formData) => async(dispatch) => {
 // Delete Answer
 export const deleteAnswer = (postId, AnswerId) => async(dispatch) => {
     try {
-        const res = await axios.delete(`/api/posts/answers/${AnswerId}`);
+        await axios.delete(`/api/posts/answers/${AnswerId}`);
 
         dispatch({
             type: DELETE_ANSWER,
