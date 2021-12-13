@@ -55,7 +55,7 @@ const PostCell = ({
                   (user_id) === auth?.user?.id && (
                     <Link
                       className='s-link s-link__danger'
-                      style={{paddingLeft: '4px'}}
+                      style={{paddingLeft: '4px',paddingRight: '4px',backgroundColor:'#FDF2F2',border:"1px solid #F9D2D3"}}
                       title='Delete the post'
                       onClick={(e) => handleDeletePost(e,id)}
                       to='/questions'

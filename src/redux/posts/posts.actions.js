@@ -136,8 +136,6 @@ export const addPost = (formData, callback) => async(dispatch) => {
             type: ADD_POST,
             payload: res.data.data,
         });
-
-        dispatch(setAlert(res.data.message, 'success'));
         dispatch(getPosts());
         callback(null, res.data);
 
@@ -155,14 +153,13 @@ export const addPost = (formData, callback) => async(dispatch) => {
 // Delete post
 export const deletePost = (id) => async(dispatch) => {
     try {
-        const res = await axios.delete(`/api/posts/${id}`);
+        await axios.delete(`/api/posts/${id}`);
 
         dispatch({
             type: DELETE_POST,
             payload: id,
         });
 
-        dispatch(setAlert(res.data.message, 'success'));
         dispatch(getTags());
     } catch (err) {
         dispatch(setAlert(err?.response?.data?.message, 'danger'));

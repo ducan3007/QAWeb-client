@@ -32,7 +32,7 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
             <LinkButton
               text={"Ask a question"}
               link={"/add/question"}
-              type={"s-btn__primary"}
+              type={"ask-btn"}
             />
           </div>
         </div>

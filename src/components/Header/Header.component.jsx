@@ -42,8 +42,8 @@ const Header = ({ auth: { isAuthenticated, loading, user }, logout }) => {
 
   const guestLinks = (
     <div className='btns'>
-      <LinkButton text={'Log in'} link={'/login'} type={'s-btn__primary'} />
-      <LinkButton text={'Sign up'} link={'/register'} type={'s-btn__filled'} />
+      <LinkButton text={'Log in'} link={'/login'} type={'btn-login'} />
+      <LinkButton text={'Sign up'} link={'/register'} type={'btn-signup'} />
     </div>
   );
 

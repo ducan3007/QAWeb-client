@@ -25,7 +25,7 @@ const HomePage = ({ getTopPosts, post: { posts, loading } }) => {
             <LinkButton
               text={"Ask a question"}
               link={"/add/question"}
-              type={"s-btn__primary"}
+              type={"ask-btn"}
             />
           </div>
         </div>

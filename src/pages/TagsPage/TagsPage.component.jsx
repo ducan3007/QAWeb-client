@@ -30,11 +30,7 @@ const TagsPage = ({getTags, tag: {tags, loading}}) => {
     <Fragment>
       <div id='mainbar' className='tags-page fc-black-800'>
         <h1 className='headline'>Tags</h1>
-        <p className='fs-body'>
-          A tag is a keyword or label that categorizes your question with other,
-          similar questions. Using the right tags makes it easier for others to
-          find and answer your question.
-        </p>
+      
         <div className='headline-count'>
           <span>{new Intl.NumberFormat('en-IN').format(tags?.length)} Tags</span>
         </div>

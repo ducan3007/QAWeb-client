@@ -47,14 +47,8 @@ const AskForm = ({ addPost }) => {
         <div className="question-form p16 s-card">
           <div className="question-layout">
             <div className="title-grid">
-              <label className="form-label s-label fc-black-800">
+              <label style={{fontSize:'1.6em'}}>
                 Title
-                <p className="title-desc fw-normal fs-caption">
-                  Be specific and imagine you’re asking a question to another
-                  person.
-                  <br />
-                  Enter title with minimum 10 characters
-                </p>
               </label>
               <input
                 className="title-input s-input"
@@ -63,19 +57,13 @@ const AskForm = ({ addPost }) => {
                 value={title}
                 onChange={(e) => onChange(e)}
                 id="title"
-                placeholder="e.g. What is NoSQL?"
+                placeholder="e.g. What is .....?"
                 required
               />
             </div>
             <div className="body-grid">
-              <label className="form-label s-label fc-black-800">
+            <label style={{fontSize:'1.6em'}}>
                 Body
-                <p className="body-desc fw-normal fs-caption fc-black-800">
-                  Include all the information someone would need to answer your
-                  question.
-                  <br />
-                  Enter body with minimum 10 characters
-                </p>
               </label>
               <div className="s-textarea rich-text-editor-container">
 
@@ -88,13 +76,10 @@ const AskForm = ({ addPost }) => {
     
             </div>
             <div className="tag-grid">
-              <label className="form-label s-label">
-                Tag Name
-                <p className="tag-desc fw-normal fs-caption">
-                  Add up to 5 tags to describe what your question is about, each
-                  seperated by a commas ",".
-                </p>
+            <label style={{fontSize:'1.6em'}}>
+                Tags
               </label>
+              <p style={{fontSize:'1.15em'}}>You can add up to 6 tags. (tag1,tag2, ... ,tag6) </p>
               <input
                 className="tag-input s-input"
                 type="text"
@@ -102,7 +87,7 @@ const AskForm = ({ addPost }) => {
                 value={tagname}
                 onChange={(e) => onChange(e)}
                 id="tagname"
-                placeholder="e.g. (java, c++, javascript, nodejs)"
+                placeholder="Tags are separated by commas."
                 required
               />
             </div>
@@ -110,9 +95,10 @@ const AskForm = ({ addPost }) => {
         </div>
         <div className="post-button mt32">
           <button
-            className="s-btn s-btn__primary"
+            className="s-btn"
             id="submit-button"
             name="submit-button"
+            style={{fontSize:"1.2em",backgroundColor:"#21AFF1",color:"white"}}
           >
             Post your question
           </button>

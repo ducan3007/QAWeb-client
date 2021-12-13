@@ -93,9 +93,10 @@ const AuthForm = ({register, login, action}) => {
             
             <div className='grid gs4 gsy fd-column js-auth-item '>
               <button
-                className='s-btn s-btn__primary'
+                className='s-btn'
                 id='submit-button'
                 name='submit-button'
+                style={{backgroundColor:'#21AFF1'}}
               >
                 {action}
               </button>

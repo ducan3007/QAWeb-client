@@ -1,15 +1,15 @@
 .post-form-container {
-    width: 75%;
-    max-width: 75%;
-    display: flex;
-    justify-content: right;
+    width: 80%;
+    max-width: 80%;
     margin: 5% 0 5% 8%;
-    position: relative;
+    left: 12%;
+    position: absolute;
     flex: 1 0 auto;
     .post-form-content {
         min-height: 750px;
         overflow: visible;
-        width: 85%;
+        width: 75%;
+        height: 75%;
         margin: 0;
         background-color: transparent;
         padding-top: 0;
