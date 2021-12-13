@@ -37,6 +37,16 @@ const AnswerCommentCell = ({
       body: '',
     });
   };
+  
+  const handleDeleteComment = (e,post_id,answer_id,comment_id)=>{
+    const confirm = window.confirm("Are you sure delete this comment?");
+    if(confirm){
+      deleteAnswerComment(post_id,answer_id,comment_id);
+    }else{
+      e.preventDefault();
+      return;
+    }
+  }
 
   return (
     <Fragment>
@@ -74,7 +84,7 @@ const AnswerCommentCell = ({
                           className='s-tag s-tag__moderator'
                           style={{marginTop: '4px'}}
                           title='Delete the comment'
-                          onClick={(e) => deleteAnswerComment(postId,answerId,comment?.id)}
+                          onClick={(e) => handleDeleteComment(e,postId,answerId,comment?.id)}
                           to={`/questions/${postId}`}
                         >
                           delete

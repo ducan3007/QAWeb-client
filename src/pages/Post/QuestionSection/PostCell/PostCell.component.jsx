@@ -22,6 +22,15 @@ const PostCell = ({
     // eslint-disable-next-line
   }, [getPost]);
 
+  const handleDeletePost = (event,post_id)=>{
+    const confirm = window.confirm("Are you sure delete this question?");
+    if(confirm){
+      deletePost(post_id);
+    }else{
+      event.preventDefault();
+    }
+  }
+
   return (
     <Fragment>
       <div className='post-cell'>
@@ -48,7 +57,7 @@ const PostCell = ({
                       className='s-link s-link__danger'
                       style={{paddingLeft: '4px'}}
                       title='Delete the post'
-                      onClick={(e) => deletePost(id)}
+                      onClick={(e) => handleDeletePost(e,id)}
                       to='/questions'
                     >
                       delete

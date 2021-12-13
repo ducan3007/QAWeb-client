@@ -34,9 +34,17 @@ const AnswerItem = ({
   let score = (votes || []).reduce((a, b) => {
     return a + b?.vote;
   }, 0);
-  // "#df7015"
+  
+  const handleDeleteAnswer = (e,post_id,_id)=>{
+    const confirm = window.confirm("Are you sure delete this answer?");
+    if(confirm){
+      deleteAnswer(post_id,_id);
+    }else{
+      e.preventDefault();
+      return;
+    }
+  }
 
-  // dsfs ? asdfs : sdfdasf ? sdfsdf :
   return (
     <Fragment>
       <div className="answer-layout">
@@ -117,7 +125,7 @@ const AnswerItem = ({
                       className="s-tag s-tag__moderator"
                       style={{ paddingLeft: "4px" }}
                       title="Delete the answer"
-                      onClick={(e) => deleteAnswer(postId, id)}
+                      onClick={(e) => handleDeleteAnswer(e,postId,id)}
                       to={`/questions/${postId}`}
                     >
                       delete

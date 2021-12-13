@@ -62,8 +62,6 @@ export const addAnswer = (postId, formData) => async(dispatch) => {
             payload: res.data.data,
         });
 
-        dispatch(setAlert(res.data.message, 'success'));
-
         dispatch(getAnswers(postId));
         dispatch(getPost(postId));
     } catch (err) {
@@ -84,8 +82,6 @@ export const deleteAnswer = (postId, AnswerId) => async(dispatch) => {
             type: DELETE_ANSWER,
             payload: AnswerId,
         });
-
-        dispatch(setAlert(res.data.message, 'success'));
         dispatch(getAnswers(postId));
         dispatch(getPost(postId));
     } catch (err) {
