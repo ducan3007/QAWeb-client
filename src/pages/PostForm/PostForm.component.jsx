@@ -17,15 +17,15 @@ const PostForm = ({ auth: { isAuthenticated, loading } }) => {
     <Spinner type="page" width="75px" height="200px" />
   ) : (
     <Fragment>
-        <div className="post-form-container">
-          <div className="post-form-content">
-            <div className="post-form-section">
-              <div className="postform" style={{ width: "100%" }}>
-                <AskForm />
-              </div>
+      <div className="post-form-container">
+        <div className="post-form-content">
+          <div className="post-form-section">
+            <div className="postform" style={{ width: "100%" }}>
+              <AskForm />
             </div>
           </div>
-        </div>   
+        </div>
+      </div>
     </Fragment>
   );
 };

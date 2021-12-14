@@ -11,7 +11,7 @@ import {
 } from './auth.types';
 
 import setAuthToken from './auth.utils';
- axios.defaults.baseURL="https://qa-server-demo.herokuapp.com";
+axios.defaults.baseURL = "http://localhost:5002";
 // Load User
 export const loadUser = () => async(dispatch) => {
     if (localStorage.token) {

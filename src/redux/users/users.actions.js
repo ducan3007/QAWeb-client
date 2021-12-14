@@ -3,7 +3,7 @@ import { GET_USERS, GET_USER, USER_ERROR } from './users.types';
 import axios from 'axios';
 
 // Get users
-axios.defaults.baseURL="https://qa-server-demo.herokuapp.com";
+axios.defaults.baseURL = "http://localhost:5002";
 export const getUsers = () => async(dispatch) => {
     try {
         const res = await axios.get('/api/users');

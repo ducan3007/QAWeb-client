@@ -9,20 +9,22 @@ import TagBadge from "../../TagBadge/TagBadge.component";
 import "./TagsWidget.styles.scss";
 
 const TagsWidget = ({ getTags, tag: { tags, loading } }) => {
+
+
   useEffect(() => {
     getTags();
   }, [getTags]);
+
+
+
+
   return loading || (tags || ['']).length === 0 ? (
     ""
   ) : (
     <Fragment>
       <div className="side-bar-tags">
         <h4 className="tag-headline">List of tags</h4>
-        {tags?.sort((a, b) => {
-            return b.posts_count - a.posts_count;
-          })
-          .slice(0, 15)
-          .map((tag) => (
+        {tags?.map((tag) => (
             <div key={tag?.tagname} className="tag-content">
               <TagBadge
                 tag_name={tag?.tagname}

@@ -9,7 +9,7 @@ import axios from 'axios';
 import { setAlert } from '../alert/alert.actions';
 import { getPost } from '../posts/posts.actions';
 import { GET_POST } from '../posts/posts.types';
-axios.defaults.baseURL="https://qa-server-demo.herokuapp.com";
+axios.defaults.baseURL = "http://localhost:5002";
 export const getAnswers = (id) => async(dispatch) => {
     try {
         const res = await axios.get(`/api/posts/answers/${id}`);

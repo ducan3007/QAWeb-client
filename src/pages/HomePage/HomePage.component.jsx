@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { getTopPosts } from "../../redux/posts/posts.actions";
@@ -6,6 +6,7 @@ import { getTopPosts } from "../../redux/posts/posts.actions";
 import LinkButton from "../../components/LinkButton/LinkButton.component";
 import PostItem from "../../components/PostItem/PostItem.component";
 import Spinner from "../../components/Spinner/Spinner.component";
+
 
 import "./HomePage.styles.scss";
 
@@ -17,7 +18,6 @@ const HomePage = ({ getTopPosts, post: { posts, loading } }) => {
   return loading || posts === null ? (
     <Spinner type="page" width="75px" height="200px" />
   ) : (
-    <Fragment>
       <div id="mainbar" className="homepage fc-black-800">
         <div className="questions-grid">
           <h3 className="questions-headline">Top Questions</h3>
@@ -30,18 +30,15 @@ const HomePage = ({ getTopPosts, post: { posts, loading } }) => {
           </div>
         </div>
         <div className="questions-tabs">
-          <span>
-            {new Intl.NumberFormat("en-IN").format((posts || []).length)}{" "}
-            questions
-          </span>
         </div>
         <div className="questions">
-          {(posts || []).map((post) => (
-            <PostItem key={post?.id} post={post} />
-          ))}
+        {posts[0].id === undefined
+          ? ""
+          : (posts || []).map((post) => (
+              <PostItem key={post?.id} post={post} />
+            ))}
         </div>
       </div>
-    </Fragment>
   );
 };
 

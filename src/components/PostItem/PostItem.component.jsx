@@ -57,6 +57,7 @@ const PostItem = ({
         </div>
       </div>
       <div className="summary">
+        {body === undefined ? body = '': true}
         <h3>
           <Link to={`/questions/${id}`}>{htmlSubstring(title,150)}</Link>
         </h3>

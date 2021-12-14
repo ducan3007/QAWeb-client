@@ -23,7 +23,10 @@ const UsersPage = ({ getUsers, user: { users, loading } }) => {
     e.preventDefault();
     setSearch(e.target.value);
   };
-
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    return false;
+  };
   return loading || users === null ? (
     <Spinner type="page" width="50px" height="150px" />
   ) : (
@@ -38,6 +41,7 @@ const UsersPage = ({ getUsers, user: { users, loading } }) => {
         <div className="users-box pl16 pr16 pb16">
           <SearchBox
             placeholder={"filter by user"}
+            handleSubmit={handleSubmit}
             handleChange={handleChange}
             width={"200px"}
           />
