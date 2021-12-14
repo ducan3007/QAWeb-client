@@ -6,6 +6,12 @@
     font-weight: 400;
 }
 
-.pag-container {
-    padding: 20px;
+.pagination>li.active>a {
+    color: #fff;
+    background-color: #3b8deb !important;
+    border: #3fb7ee !important;
+}
+
+.pagination>li>a {
+    border-radius: 7px !important;
 }

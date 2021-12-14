@@ -20,14 +20,19 @@ const QuestionsPage = ({ getPosts, post: { posts, loading } }) => {
   let searchQuery = new URLSearchParams(useLocation().search).get("search");
 
   const [pages, setPage] = useState(1);
-
+  
   const [sortType, setSortType] = useState("Newest");
 
   const handlePageClick = (data) => {
     setPage(data.selected + 1);
   };
-
-  let total = posts[0]?.totalPost;
+  let total;
+  for(let p of posts){
+    if(p.totalPost !== undefined){
+      total = p.totalPost;
+      break;
+    }
+  }
 
   useEffect(() => {
     getPosts(searchQuery, pages);

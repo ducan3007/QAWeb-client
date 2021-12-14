@@ -29,7 +29,13 @@ const TagPage = ({
     setPage(data.selected + 1);
   };
 
-  let total = posts[0]?.totalPost;
+  let total;
+  for(let p of posts){
+    if(p.totalPost !== undefined){
+      total = p.totalPost;
+      break;
+    }
+  }
 
   useEffect(() => {
     getTagPosts(match.params.tagname, pages);
