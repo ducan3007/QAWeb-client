@@ -15,7 +15,7 @@ const HomePage = ({ getTopPosts, post: { posts, loading } }) => {
     getTopPosts();
   }, [getTopPosts]);
 
-  return loading || posts === null ? (
+  return loading || posts === undefined ? (
     <Spinner type="page" width="75px" height="200px" />
   ) : (
       <div id="mainbar" className="homepage fc-black-800">
@@ -32,7 +32,7 @@ const HomePage = ({ getTopPosts, post: { posts, loading } }) => {
         <div className="questions-tabs">
         </div>
         <div className="questions">
-        {posts[0].id === undefined
+        {posts[0] === undefined ||  posts[0].id === undefined
           ? ""
           : (posts || []).map((post) => (
               <PostItem key={post?.id} post={post} />
