@@ -87,9 +87,7 @@ const TagPage = ({
         </div>
         <div className="questions">
           {tag?.tag?.posts_count === 0 ? (
-            <h4 style={{ margin: "30px 30px" }}>
-              There are no questions from this tag
-            </h4>
+           ''
           ) : (
             posts
               ?.sort(handleSorting(sortType))

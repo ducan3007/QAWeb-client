@@ -20,24 +20,6 @@
 <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id='root'></div>
-    <script>
-        let pageX = $(document).width();
-        let pageY = $(document).height();
-        let mouseY = 0;
-        let mouseX = 0;
-
-        $(document).mousemove(function(event) {
-            mouseY = event.pageY;
-            const yAxis = (pageY / 2 - mouseY) / pageY * 300;
-            mouseX = event.pageX / -pageX;
-            const xAxis = -mouseX * 100 - 100;
-
-            $('.box__ghost-eyes')
-                .css({
-                    'transform': 'translate(' + xAxis + '%,-' + yAxis + '%)'
-                });
-        });
-    </script>
 </body>
 
 </html>

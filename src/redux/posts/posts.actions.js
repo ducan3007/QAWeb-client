@@ -10,7 +10,7 @@ import {
   DELETE_POST,
   ADD_POST,
 } from "./posts.types";
-axios.defaults.baseURL = "http://localhost:5002";
+axios.defaults.baseURL="https://qa-server-demo.herokuapp.com";
 // Get posts
 export const getPosts = (searchQuery, page) => async (dispatch) => {
   try {

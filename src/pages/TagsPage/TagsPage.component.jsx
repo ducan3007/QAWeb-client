@@ -21,11 +21,11 @@ const TagsPage = ({ tag: { loading } }) => {
   const [totalTags, setTotalTags] = useState(0);
 
   const [page, setPage] = useState(1);
-
+ 
   useEffect(() => {
     const getTagList = async (page) => {
       const res = await axios.get(
-        `http://localhost:5002/api/tags?page=${page}`
+        `https://qa-server-demo.herokuapp.com/api/tags?page=${page}`
       );
       const data = res.data.data;
       const total = data[0].totalTags;

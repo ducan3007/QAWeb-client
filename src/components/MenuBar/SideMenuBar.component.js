@@ -15,7 +15,6 @@ const SideMenuBar = () => {
 
     const handleClick = () => {
         setShowMenu(!showMenu);
-        console.log(MenuScreen.current)
         if(showMenu){
             title.current.style.visibility = 'hidden';
             MenuTap.current.style.visibility = 'hidden';
