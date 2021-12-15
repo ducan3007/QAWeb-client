@@ -3,11 +3,11 @@
     padding: .75rem 1.25rem;
     border: 1px solid transparent;
     border-radius: .25rem;
-    width: 50%;
+    text-align: center;
+    width: 38%;
     top: 79px;
-    left: 22.5%;
+    left: 30%;
     z-index: 4;
-    font-size: 15px;
 }
 
 .alert-success {
@@ -17,7 +17,7 @@
 }
 
 .alert-danger {
-    background-color: #c4524f;
+    background-color: #d34c47;
     color: aliceblue;
-    font-size: 20px;
+    font-size: 1.7em
 }

@@ -21,7 +21,6 @@ const PostItem = ({
     username,
     user_id,
     answer_count,
-    comment_count,
     views,
     created_at,
   },
