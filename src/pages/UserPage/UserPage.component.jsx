@@ -120,7 +120,7 @@ const UserPage = ({
           </div>
         </div>
 
-        <div className="fc-black-800 fs-headline1">Your Questions</div>
+        <div className="fc-black-800 fs-headline1">All Questions</div>
         <div className="questions">
           {posts?.map((post) => (
             <PostItem key={post?.id} post={post} />
