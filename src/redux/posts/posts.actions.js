@@ -57,7 +57,7 @@ export const getPost = (id) => async (dispatch) => {
 
     dispatch({
       type: POST_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status },
+      payload: { msg: err?.response?.statusText, status: err?.response?.status },
     });
   }
 };
@@ -74,7 +74,7 @@ export const getUserPost = (id) => async (dispatch) => {
     dispatch(setAlert(err?.response?.data?.message || "", "danger"));
     dispatch({
       type: POST_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status },
+      payload: { msg: err?.response?.statusText, status: err?.response?.status },
     });
   }
 };
@@ -91,7 +91,7 @@ export const getTopPosts = () => async (dispatch) => {
     dispatch(setAlert(err?.response?.data?.message || "", "danger"));
     dispatch({
       type: POST_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status },
+      payload: { msg: err?.response?.statusText, status: err?.response?.status },
     });
   }
 };
@@ -112,7 +112,7 @@ export const getTagPosts = (tagName,page) => async (dispatch) => {
 
     dispatch({
       type: POST_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status },
+      payload: { msg: err?.response?.statusText, status: err?.response?.status },
     });
   }
 };
@@ -160,7 +160,7 @@ export const deletePost = (id) => async (dispatch) => {
 
     dispatch({
       type: POST_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status },
+      payload: { msg: err?.response?.statusText, status: err?.response?.status },
     });
   }
 };
@@ -177,7 +177,7 @@ export const Vote = (postId, voteAction) => async (dispatch) => {
 
     dispatch({
       type: POST_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status },
+      payload: { msg: err?.response?.statusText, status: err?.response?.status },
     });
   }
 };

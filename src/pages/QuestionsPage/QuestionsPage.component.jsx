@@ -33,11 +33,11 @@ const QuestionsPage = ({ getPosts, post: { posts, loading } }) => {
       break;
     }
   }
-
+  console.log(posts);
   useEffect(() => {
     getPosts(searchQuery, pages);
   }, [getPosts, searchQuery, pages]);
-
+  
   return loading || posts === null ? (
     <Spinner type="page" width="75px" height="200px" />
   ) : (
@@ -83,11 +83,14 @@ const QuestionsPage = ({ getPosts, post: { posts, loading } }) => {
         </div>
 
         <div className="questions">
-          {posts[0]?.totalPost === 0
+          {
+            posts[0]?.totalPost === 0
             ? ""
             : posts
                 ?.sort(handleSorting(sortType))
                 .map((post) => <PostItem key={post?.id} post={post} />)}
+
+
           <div className="pag-container">
             {posts[0]?.totalPost === 0 ? (
               ""

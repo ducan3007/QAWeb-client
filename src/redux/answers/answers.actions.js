@@ -36,7 +36,7 @@ export const Vote = (postId, answerId, voteAction) => async(dispatch) => {
     } catch (err) {
         dispatch({
             type: ANSWER_ERROR,
-            payload: { msg: err.response.statusText, status: err.response.status },
+            payload: { msg: err?.response?.statusText, status: err?.response?.status },
         });
     }
 
@@ -89,7 +89,7 @@ export const deleteAnswer = (postId, AnswerId) => async(dispatch) => {
 
         dispatch({
             type: ANSWER_ERROR,
-            payload: { msg: err.response.statusText, status: err.response.status },
+            payload: { msg: err.response?.statusText, status: err.response?.status },
         });
     }
 };

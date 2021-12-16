@@ -36,7 +36,7 @@ const TagPage = ({
       break;
     }
   }
-
+  console.log(posts);
   useEffect(() => {
     getTagPosts(match.params.tagname, pages);
     getTag(match.params.tagname);
@@ -86,7 +86,7 @@ const TagPage = ({
           />
         </div>
         <div className="questions">
-          {tag?.tag?.posts_count === 0 ? (
+          {tag?.tag?.posts_count === 0 || posts[0].totalPost===0? (
            ''
           ) : (
             posts

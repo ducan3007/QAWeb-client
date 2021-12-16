@@ -16,7 +16,7 @@ export const getTag = (tagName) => async(dispatch) => {
 
         dispatch({
             type: TAG_ERROR,
-            payload: { msg: err.response.statusText, status: err.response.status },
+            payload: { msg: err?.response?.statusText, status: err?.response?.status },
         });
     }
 };
@@ -34,7 +34,7 @@ export const getTags = () => async(dispatch) => {
 
         dispatch({
             type: TAG_ERROR,
-            payload: { msg: err.response.statusText, status: err.response.status },
+            payload: { msg: err?.response?.statusText, status: err?.response?.status },
         });
     }
 };

@@ -22,7 +22,7 @@ export const getComments = (id) => async(dispatch) => {
     } catch (err) {
         dispatch({
             type: COMMENT_ERROR,
-            payload: { msg: err.response.statusText, status: err.response.status },
+            payload: { msg: err?.response?.statusText, status: err?.response?.status },
         });
     }
 };
@@ -55,7 +55,7 @@ export const addComment = (postId, formData) => async(dispatch) => {
 
         dispatch({
             type: COMMENT_ERROR,
-            payload: { msg: err.response.statusText, status: err.response.status },
+            payload: { msg: err?.response?.statusText, status: err?.response?.status },
         });
     }
 };
@@ -77,7 +77,7 @@ export const deleteComment = (PostId, CommentId) => async(dispatch) => {
 
         dispatch({
             type: COMMENT_ERROR,
-            payload: { msg: err.response.statusText, status: err.response.status },
+            payload: { msg: err?.response?.statusText, status: err?.response?.status },
         });
     }
 };
@@ -108,7 +108,7 @@ export const addAnswerComment = (PostId, answerId, formData) => async(dispatch) 
 
         dispatch({
             type: COMMENT_ERROR,
-            payload: { msg: err.response.statusText, status: err.response.status },
+            payload: { msg: err?.response?.statusText, status: err?.response?.status },
         });
     }
 };
@@ -145,7 +145,7 @@ export const deleteAnswerComment = (PostId, AnswerId, CommentId) => async(dispat
 
         dispatch({
             type: COMMENT_ERROR,
-            payload: { msg: err.response.statusText, status: err.response.status },
+            payload: { msg: err?.response?.statusText, status: err?.response?.status },
         });
     }
 };
