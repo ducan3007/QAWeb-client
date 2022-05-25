@@ -1,6 +1,6 @@
 # Q&AWebApp
 
-### `Node.js`  `MongoDB`  `React.js`
+### Node MongoDB React
 ### Demo : [https://qaweb-client.vercel.app](https://qaweb-client.vercel.app)
 
 ### Video : [https://www.youtube.com/watch?v=2sZrpmcJVUk&t=5s](https://www.youtube.com/watch?v=2sZrpmcJVUk&t=5s)
