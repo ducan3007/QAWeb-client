@@ -1,116 +1,105 @@
 import {
-    GET_COMMENTS,
-    COMMENT_ERROR,
-    ADD_COMMENT,
-    ADD_ANSWER_COMMENT,
-    DELETE_COMMENT,
-} from './comments.types';
+  GET_COMMENTS,
+  COMMENT_ERROR,
+  ADD_COMMENT,
+  ADD_ANSWER_COMMENT,
+  DELETE_COMMENT,
+} from "./comments.types";
 
-import axios from 'axios';
-import { setAlert } from '../alert/alert.actions';
-import { getAnswers } from '../answers/answers.actions';
-import { getPost } from '../posts/posts.actions';
-axios.defaults.baseURL="https://qa-server-demo.herokuapp.com";
-export const getComments = (id) => async(dispatch) => {
-    try {
-        const res = await axios.get(`/api/posts/comments/${id}`);
+import axios from "axios";
+import { setAlert } from "../alert/alert.actions";
+import { getAnswers } from "../answers/answers.actions";
+import { getPost } from "../posts/posts.actions";
+axios.defaults.baseURL = process.env.REACT_APP_API_URL;
+export const getComments = (id) => async (dispatch) => {
+  try {
+    const res = await axios.get(`/api/posts/comments/${id}`);
 
-        dispatch({
-            type: GET_COMMENTS,
-            payload: res.data.data,
-        });
-    } catch (err) {
-        dispatch({
-            type: COMMENT_ERROR,
-            payload: { msg: err?.response?.statusText, status: err?.response?.status },
-        });
-    }
+    dispatch({
+      type: GET_COMMENTS,
+      payload: res.data.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: COMMENT_ERROR,
+      payload: { msg: err?.response?.statusText, status: err?.response?.status },
+    });
+  }
 };
 
 // Add COMMENT
-export const addComment = (postId, formData) => async(dispatch) => {
-    const config = {
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    };
+export const addComment = (postId, formData) => async (dispatch) => {
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
 
-    try {
-        const res = await axios.post(
-            `/api/posts/comments/${postId}`,
-            formData,
-            config
-        );
+  try {
+    const res = await axios.post(`/api/posts/comments/${postId}`, formData, config);
 
-        dispatch({
-            type: ADD_COMMENT,
-            payload: res.data.data,
-        });
+    dispatch({
+      type: ADD_COMMENT,
+      payload: res.data.data,
+    });
 
-       
-        dispatch(getPost(postId));
-        dispatch(getComments(postId));
-    } catch (err) {
-        dispatch(setAlert(err.response.data.message, 'danger'));
+    dispatch(getPost(postId));
+    dispatch(getComments(postId));
+  } catch (err) {
+    dispatch(setAlert(err.response.data.message, "danger"));
 
-        dispatch({
-            type: COMMENT_ERROR,
-            payload: { msg: err?.response?.statusText, status: err?.response?.status },
-        });
-    }
+    dispatch({
+      type: COMMENT_ERROR,
+      payload: { msg: err?.response?.statusText, status: err?.response?.status },
+    });
+  }
 };
 
 // Delete Comment
-export const deleteComment = (PostId, CommentId) => async(dispatch) => {
-    try {
-        await axios.delete(`/api/posts/comments/${PostId}/${CommentId}`);
+export const deleteComment = (PostId, CommentId) => async (dispatch) => {
+  try {
+    await axios.delete(`/api/posts/comments/${PostId}/${CommentId}`);
 
-        dispatch({
-            type: DELETE_COMMENT,
-            payload: CommentId,
-        });
+    dispatch({
+      type: DELETE_COMMENT,
+      payload: CommentId,
+    });
 
-       
-        dispatch(getPost(PostId));
-    } catch (err) {
-        dispatch(setAlert((err?.response?.data?.message || ''), 'danger'));
+    dispatch(getPost(PostId));
+  } catch (err) {
+    dispatch(setAlert(err?.response?.data?.message || "", "danger"));
 
-        dispatch({
-            type: COMMENT_ERROR,
-            payload: { msg: err?.response?.statusText, status: err?.response?.status },
-        });
-    }
+    dispatch({
+      type: COMMENT_ERROR,
+      payload: { msg: err?.response?.statusText, status: err?.response?.status },
+    });
+  }
 };
 
-export const addAnswerComment = (PostId, answerId, formData) => async(dispatch) => {
-    const config = {
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    };
+export const addAnswerComment = (PostId, answerId, formData) => async (dispatch) => {
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
 
-    try {
-        const res = await axios.post(`/api/answers/comments/${answerId}`,
-            formData,
-            config
-        );
+  try {
+    const res = await axios.post(`/api/answers/comments/${answerId}`, formData, config);
 
-        dispatch({
-            type: ADD_ANSWER_COMMENT,
-            payload: res.data.data,
-        });
+    dispatch({
+      type: ADD_ANSWER_COMMENT,
+      payload: res.data.data,
+    });
 
-        
-        dispatch(getAnswers(PostId));
+    dispatch(getAnswers(PostId));
+  } catch (err) {
+    dispatch(setAlert(err?.response?.data?.message || "", "danger"));
 
-    } catch (err) {
-        dispatch(setAlert((err?.response?.data?.message || ''), 'danger'));
-
-        dispatch({
-            type: COMMENT_ERROR,
-            payload: { msg: err?.response?.statusText, status: err?.response?.status },
-        });
-    }
+    dispatch({
+      type: COMMENT_ERROR,
+      payload: { msg: err?.response?.statusText, status: err?.response?.status },
+    });
+  }
 };
 
 // export const getAnswerComments = (id) => async(dispatch) => {
@@ -129,23 +118,22 @@ export const addAnswerComment = (PostId, answerId, formData) => async(dispatch) 
 //     }
 // };
 
-export const deleteAnswerComment = (PostId, AnswerId, CommentId) => async(dispatch) => {
-    try {
+export const deleteAnswerComment = (PostId, AnswerId, CommentId) => async (dispatch) => {
+  try {
+    await axios.delete(`/api/answers/comments/${AnswerId}/${CommentId}`);
 
-        await axios.delete(`/api/answers/comments/${AnswerId}/${CommentId}`);
+    dispatch({
+      type: DELETE_COMMENT,
+      payload: CommentId,
+    });
 
-        dispatch({
-            type: DELETE_COMMENT,
-            payload: CommentId,
-        });
+    dispatch(getAnswers(PostId));
+  } catch (err) {
+    dispatch(setAlert(err?.response?.data?.message || "", "danger"));
 
-        dispatch(getAnswers(PostId));
-    } catch (err) {
-        dispatch(setAlert((err?.response?.data?.message || ''), 'danger'));
-
-        dispatch({
-            type: COMMENT_ERROR,
-            payload: { msg: err?.response?.statusText, status: err?.response?.status },
-        });
-    }
+    dispatch({
+      type: COMMENT_ERROR,
+      payload: { msg: err?.response?.statusText, status: err?.response?.status },
+    });
+  }
 };

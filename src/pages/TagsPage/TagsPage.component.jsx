@@ -21,11 +21,11 @@ const TagsPage = ({ tag: { loading } }) => {
   const [totalTags, setTotalTags] = useState(0);
 
   const [page, setPage] = useState(1);
- 
+
   useEffect(() => {
     const getTagList = async (page) => {
       const res = await axios.get(
-        `https://qa-server-demo.herokuapp.com/api/tags?page=${page}`
+        `${process.env.REACT_APP_API_URL}/api/tags?page=${page}`
       );
       const data = res.data.data;
       const total = data[0].totalTags;
@@ -91,9 +91,7 @@ const TagsPage = ({ tag: { loading } }) => {
                 marginPagesDisplayed={2}
                 pageRangeDisplayed={2}
                 onPageChange={handlePageClick}
-                containerClassName={
-                  "pagination pagination-lg justify-content-center"
-                }
+                containerClassName={"pagination pagination-lg justify-content-center"}
                 pageClassName={"page-item"}
                 pageLinkClassName={"page-link"}
                 previousClassName={"page-item"}
