@@ -10,7 +10,7 @@ import {
   DELETE_POST,
   ADD_POST,
 } from "./posts.types";
-axios.defaults.baseURL="https://qa-server-demo.herokuapp.com";
+axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 // Get posts
 export const getPosts = (searchQuery, page) => async (dispatch) => {
   try {
@@ -24,9 +24,7 @@ export const getPosts = (searchQuery, page) => async (dispatch) => {
         payload: res.data.data,
       });
     } else {
-      const res = await axios.get(
-        `/api/posts/?page=${page}`
-      );
+      const res = await axios.get(`/api/posts/?page=${page}`);
 
       dispatch({
         type: GET_POSTS,
@@ -42,7 +40,6 @@ export const getPosts = (searchQuery, page) => async (dispatch) => {
     });
   }
 };
-
 
 export const getPost = (id) => async (dispatch) => {
   try {
@@ -97,7 +94,7 @@ export const getTopPosts = () => async (dispatch) => {
 };
 
 //GET TAG POSTS
-export const getTagPosts = (tagName,page) => async (dispatch) => {
+export const getTagPosts = (tagName, page) => async (dispatch) => {
   try {
     const res = await axios.get(
       `/api/posts/tag/${encodeURIComponent(tagName)}?page=${page}`
@@ -132,7 +129,7 @@ export const addPost = (formData, callback) => async (dispatch) => {
       type: ADD_POST,
       payload: res.data.data,
     });
-    dispatch(getPosts(undefined,1));
+    dispatch(getPosts(undefined, 1));
     callback(null, res.data);
   } catch (err) {
     dispatch(setAlert(err?.response?.data?.message, "danger"));
@@ -180,4 +177,10 @@ export const Vote = (postId, voteAction) => async (dispatch) => {
       payload: { msg: err?.response?.statusText, status: err?.response?.status },
     });
   }
+};
+
+export const uploadFilehandler = async (file) => {
+  const formData = new FormData();
+  formData.append("file", file);
+  return await axios.post("/api/upload", formData);
 };

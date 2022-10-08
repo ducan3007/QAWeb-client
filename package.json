@@ -27,6 +27,8 @@
         "redux-persist": "^6.0.0",
         "redux-thunk": "^2.3.0",
         "reselect": "^4.0.0",
+        "suneditor": "^2.44.3",
+        "suneditor-react": "^3.4.1",
         "uuid": "^7.0.3"
     },
     "scripts": {

@@ -11,7 +11,7 @@ import {
 } from './auth.types';
 
 import setAuthToken from './auth.utils';
-axios.defaults.baseURL="https://qa-server-demo.herokuapp.com";
+axios.defaults.baseURL=process.env.REACT_APP_API_URL;
 // Load User
 export const loadUser = () => async(dispatch) => {
     if (localStorage.token) {
